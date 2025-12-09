@@ -5,14 +5,15 @@ body {
 }
 
 .container {
-    border-color: #38042b;
+    border-color: #00055a;
     border-radius: 15px;
-    background-color: rgba(207, 138, 209, 0.8);
+    border-style: solid;
+    background-color:  teal;
     margin: 100px;
 }
 .welcomebox {
-    border-color: #921673;
-    background-color: rgba(210, 113, 173, 0.8);
+    border-color: #000bd3;
+    background-color:rgba(150, 155, 255, 0.8);
     margin: 20px;
     padding: 10px;
     border-style: solid;
