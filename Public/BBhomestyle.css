@@ -46,11 +46,12 @@ body {
     top: 0;
     background-color:aquamarine;
     border: #38042b;
+}
 #quote {
     font-style: italic;
     font: 30px 'Georgia', serif;
     text-align: center; 
     color:darkorange;
     margin: 20px;
->>>>>>> f46a450 (commit)
+
 }
