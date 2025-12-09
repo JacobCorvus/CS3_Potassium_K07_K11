@@ -38,9 +38,10 @@ body {
 
 .navBar {
     list-style-type: none;
-    margin: 0;
+    margin: 20px;
     padding: 0;
     position: sticky;
     top: 0;
-    background-color:aquamarine
+    background-color:aquamarine;
+    border: #38042b;
 }
