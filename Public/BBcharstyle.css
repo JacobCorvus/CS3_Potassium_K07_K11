@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
 }
 
-.charactergridcontainer {
+.introbox {
     border-color: #00055a;
     border-radius: 15px;
     border-style: solid;
@@ -14,7 +14,7 @@ body {
 
 }
 
-.introbox {
+.charactergridcontainer {
     border-color: #000bd3;
     border-style: solid;
     background-color: rgba(150, 155, 255, 0.8);
