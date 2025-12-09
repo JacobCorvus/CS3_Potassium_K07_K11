@@ -1,5 +1,35 @@
 body {
     background-image: url("assets/BBBACKGROUND.webp");
     background-size: cover;
-    background-position: center;
+    background-attachment: fixed;
+}
+
+.container {
+    border-color: #38042b;
+    border-radius: 15px;
+    background-color: rgba(207, 138, 209, 0.8);
+    margin: 100px;
+}
+.welcomebox {
+    border-color: #921673;
+    background-color: rgba(210, 113, 173, 0.8);
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+.charactergrid {
+    border: #38042b;
+    background:#921673;
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+#characterpage > a:hover {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
