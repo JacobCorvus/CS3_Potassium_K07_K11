@@ -1,0 +1,24 @@
+body {
+    background-image: url("assets/BBBACKGROUND.webp");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.charactergridcontainer {
+    border-color: #00055a;
+    border-radius: 15px;
+    border-style: solid;
+    background-color: teal;
+    padding: 20px;
+    margin: 50px;
+
+}
+
+.introbox {
+    border-color: #000bd3;
+    border-style: solid;
+    background-color: rgba(0, 5, 90, 0.8);
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
