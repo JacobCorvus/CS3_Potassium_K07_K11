@@ -10,6 +10,7 @@ body {
     border-style: solid;
     background-color:  teal;
     margin: 100px;
+    padding-top: 0;
 }
 .welcomebox {
     border-color: #000bd3;
@@ -39,9 +40,11 @@ body {
 .navBar {
     list-style-type: none;
     margin: 20px;
+    margin-top: 0;
     padding: 0;
     position: sticky;
     top: 0;
     background-color:aquamarine;
     border: #38042b;
+    
 }
