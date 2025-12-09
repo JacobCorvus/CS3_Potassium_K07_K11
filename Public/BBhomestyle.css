@@ -1,28 +1,42 @@
 body {
-    background-image: url("assets/BBBACKGROUND.webp");
+    background-image: url("assets/bg.jpg");
     background-size: cover;
     background-attachment: fixed;
+    background-blend-mode: lighten;
+    background-color: #ffb326;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    text-decoration: overline underline;
+    color: #fdd44e;
 }
 
 .container {
-    border-color: #00055a;
+    border-color: #1c3352;
     border-radius: 15px;
     border-style: solid;
-    background-color:  teal;
-    margin: 100px;
+    background-color:  #223c60;
+    margin: 250px;
     padding-top: 0;
+    margin-top: 20px;
 }
 .welcomebox {
-    border-color: #000bd3;
-    background-color:rgba(150, 155, 255, 0.8);
+    border-color: #113c46;
+    background-color: #fff8db;
     margin: 20px;
+    margin-top: 20px;
     padding: 10px;
     border-style: solid;
     text-align: center;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .charactergrid {
-    border: #38042b;
-    background:#921673;
+    border: #042c38;
+    background:#3d8996;
     margin: 20px;
     padding: 10px;
     display: flex;
@@ -55,3 +69,22 @@ body {
     margin: 20px;
 
 }
+.welcomebox h2 { 
+    background: #9ad1ce;
+    background-position: top;
+    padding:0px;
+    margin: -40px -13px 40px -13px;
+    text-align: center;
+    margin-bottom:20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-style: solid;
+    border-color: #113c46;
+}
+.container img {
+    width: 700px;
+    margin: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
