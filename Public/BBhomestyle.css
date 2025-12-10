@@ -15,6 +15,8 @@ h1 {
 }
 
 .container {
+    max-width: 870px;
+    margin: auto;
     border-color: #1c3352;
     border-radius: 15px;
     border-style: solid;
@@ -22,7 +24,8 @@ h1 {
     padding-top: 0;
     margin-top: 20px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
 }
 .welcomebox {
@@ -43,7 +46,9 @@ h1 {
     padding: 10px;
     justify-content: center;
     gap: 30px;
-     flex: 33.3%;
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
 }
 
 #characterpage > a:hover {
@@ -85,23 +90,14 @@ h1 {
     font-family: 'Georgia', serif;
 }
 .container img {
-    width: 790px;
-    margin: 10px;
+    width: 95%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 30px;
-    flex: 50%;
-    }
+    align-self: center;
+ }
 
-@media screen and (max-width:240px) {
+@media screen and (max-width:400px) {
     .container { 
-        flex: 100%;
-    }
-    .container img {
-        flex: 100%;
-    }
-    .charactergrid {
         flex: 100%;
     }
 }
