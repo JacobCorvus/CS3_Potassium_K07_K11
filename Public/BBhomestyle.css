@@ -96,6 +96,47 @@ h1 {
     align-self: center;
  }
 
+ li a{
+    transition: background-color 0.2s ease;  
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    }
+ li a:hover{
+    background-color: #eaf2ff;
+    padding: 20px;
+    }
+
+li {
+    float: left;
+    display:inline;
+    }
+        
+ul {
+    text-align: left;
+    color: white
+        }
+
+a:link{
+    color:#f18b63;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+a:visited{
+    color:hsla(4, 80%, 80%, 0.5);
+    background-color: transparent;
+    text-decoration: none;
+        }
+
+a:hover{
+    color:#fa552c;
+    background-color: transparent;
+    text-decoration: underline overline wavy #fa552c;
+        }
+
+
 @media screen and (max-width:400px) {
     .container { 
         flex: 100%;
