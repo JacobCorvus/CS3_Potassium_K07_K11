@@ -2,8 +2,8 @@ body {
     background-image: url("assets/bg.jpg");
     background-size: cover;
     background-attachment: fixed;
-    background-blend-mode: lighten;
-    background-color: #ffb326;
+    background-blend-mode: multiply;
+    background-color: #0c0357;
 }
 
 h1 {
@@ -19,12 +19,14 @@ h1 {
     border-radius: 15px;
     border-style: solid;
     background-color:  #223c60;
-    margin: 250px;
     padding-top: 0;
     margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .welcomebox {
-    border-color: #113c46;
+    border-color: #1b6575;
     background-color: #fff8db;
     margin: 20px;
     margin-top: 20px;
@@ -39,9 +41,9 @@ h1 {
     background:#3d8996;
     margin: 20px;
     padding: 10px;
-    display: flex;
     justify-content: center;
     gap: 30px;
+     flex: 33.3%;
 }
 
 #characterpage > a:hover {
@@ -53,13 +55,13 @@ h1 {
 
 .navBar {
     list-style-type: none;
-    margin: 20px;
+    margin: 250px;
+    margin-bottom: 0;
     margin-top: 0;
     padding: 0;
     position: sticky;
     top: 0;
-    background-color:aquamarine;
-    border: #38042b;
+    background-color:rgb(255, 209, 60, 0.8);
 }
 #quote {
     font-style: italic;
@@ -70,21 +72,36 @@ h1 {
 
 }
 .welcomebox h2 { 
-    background: #9ad1ce;
+    background: #3693af;
     background-position: top;
     padding:0px;
-    margin: -40px -13px 40px -13px;
+    margin: -20px -13px 40px -13px;
     text-align: center;
     margin-bottom:20px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     border-style: solid;
-    border-color: #113c46;
+    border-color: #1b6575;
+    font-family: 'Georgia', serif;
 }
 .container img {
-    width: 700px;
+    width: 790px;
     margin: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 30px;
+    flex: 50%;
     }
+
+@media screen and (max-width:240px) {
+    .container { 
+        flex: 100%;
+    }
+    .container img {
+        flex: 100%;
+    }
+    .charactergrid {
+        flex: 100%;
+    }
+}
