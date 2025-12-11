@@ -4,6 +4,8 @@ body {
     background-attachment: fixed;
     background-blend-mode: multiply;
     background-color: #0c0357;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -80,8 +82,8 @@ h1 {
     align-self: center;
  }
  .navBar {
-    background: rgba(63, 106, 199, 0.671);
-    border-bottom: 1px solid rgba(63, 106, 199, 0.4);
+    background: rgba(63, 106, 199, 0.37);
+    border-bottom: 1px solid rgba(63, 106, 199, 0.3);
     margin-top: 0;
     margin-bottom: 2rem;
     display: flex;
@@ -90,9 +92,8 @@ h1 {
  }
 
  .loogo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: rgba(255, 214, 30, 0.952);
+    height: 20px;
+    width: auto;
  }
 
  .navLinks {
@@ -107,13 +108,14 @@ h1 {
     text-decoration: none;
     color:#fdd44e;
     transition: 0.5s;
-    grid-column: span 1;
+    margin-right: 48px;
  }
 
  .navLinks li a:hover {
     color:#fff8db;
     text-shadow: 0 0 10px #fff8db;
  }
+
 @media screen and (max-width:400px) {
     .container { 
         flex: 100%;
