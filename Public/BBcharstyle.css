@@ -11,6 +11,9 @@ body {
     background-color: teal;
     padding: 20px;
     margin: 50px;
+    text-align: center;
+    color: yellow;
+    font-family: 'Courier New', Courier, monospace;
 
 }
 
@@ -21,4 +24,34 @@ body {
     margin: 20px;
     padding: 10px;
     text-align: center;
+}
+
+.charactersection {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    margin: 20px;
+    padding: 10px;
+    margin-top: 1px;
+    text-align: center;
+    max-width: 300px;
+    background-color:aqua;
+
+}
+
+.charactergrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;                   
+    padding: 20px;
+}
+
+
+.charactergrid > div {
+    background: #6a0c7c;         
+    border: 2px solid #eeff59;    
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
