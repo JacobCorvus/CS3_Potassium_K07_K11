@@ -134,3 +134,31 @@ h1 {
         flex: 100%;
     }
 }
+
+.FirstChapter {
+    max-width: 870px;
+    margin: auto;
+    border-color: #1c3352;
+    border-radius: 15px;
+    border-style: solid;
+    background-color:  #1b6575;
+    padding: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    justify-self: center;
+    color: white;
+}
+
+.secondarycontainer > div {
+    background: #6a0c7c;         
+    border: 2px solid #eeff59;    
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
