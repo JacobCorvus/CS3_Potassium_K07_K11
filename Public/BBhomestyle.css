@@ -86,23 +86,28 @@ h1 {
     border-bottom: 1px solid rgba(63, 106, 199, 0.3);
     margin-top: 0;
     margin-bottom: 2rem;
+    padding: 0%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
  }
 
- .loogo {
-    height: 20px;
-    width: auto;
+ .loogo img{
+    display: flex;
+    height: auto;
+    width: 250px;
+    display: inline-block; 
  }
 
- .navLinks {
+ .navLinksLeft, .navLinksRight{
     list-style: none;
     display: flex;
     gap: 20px;
+    padding: 0;
+    margin: 0;
  }
 
- .navLinks li a {
+ .navLinksLeft li a, .navLinksRight li a {
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
