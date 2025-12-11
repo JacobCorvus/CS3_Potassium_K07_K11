@@ -27,6 +27,7 @@ h1 {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+    justify-self: center;
 }
 .welcomebox {
     border-color: #1b6575;
@@ -79,11 +80,11 @@ h1 {
     align-self: center;
  }
  .navBar {
-    width: 100%;
     padding: 1rem 5%;
     background: rgba(63, 106, 199, 0.671);
     border-bottom: 1px solid rgba(63, 106, 199, 0.4);
     margin-bottom: 2rem;
+    margin-top: 0%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,7 +95,6 @@ h1 {
     font-size: 1.5rem;
     font-weight: 700;
     color: rgba(255, 214, 30, 0.952);
-    letter-spacing: 1px;
  }
 
  .navLinks {
@@ -104,7 +104,6 @@ h1 {
  }
 
  .navLinks li a {
-    position: relative;
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
