@@ -4,8 +4,6 @@ body {
     background-attachment: fixed;
     background-blend-mode: multiply;
     background-color: #0c0357;
-    margin: 0;
-    padding: 0;
 }
 
 h1 {
@@ -29,16 +27,17 @@ h1 {
     flex-direction: column;
     gap: 20px;
     justify-content: center;
-    justify-self: center;
 }
 .welcomebox {
     border-color: #1b6575;
     background-color: #fff8db;
     margin: 20px;
     margin-top: 20px;
+    max-width: 450px;
+    min-height: 500px;
     padding: 10px;
     border-style: solid;
-    text-align: center;
+    text-align: left;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -54,6 +53,23 @@ h1 {
     flex-direction: column;
 }
 
+#characterpage > a:hover {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.navBar {
+    list-style-type: none;
+    margin: 250px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    background-color:rgb(255, 209, 60, 0.8);
+}
 #quote {
     font-style: italic;
     font: 30px 'Papyrus', sans-serif;
@@ -82,52 +98,47 @@ h1 {
     border-radius: 30px;
     align-self: center;
  }
- .navBar {
-    background: rgba(63, 106, 199, 0.37);
-    border-bottom: 1px solid rgba(63, 106, 199, 0.3);
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding: 0%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
- }
 
- .loogo img{
-    display: flex;
-    height: auto;
-    width: 100px;
-    display: inline-block; 
-    margin: 7px;
- }
-
- .loogo img:hover{
-    transform: scale(1.1);
-    transition: 0.5s;
-    color: #fff7db;
-    mix-blend-mode: screen;
- }
-
- .navLinks {
-    list-style: none;
-    display: flex;
-    gap: 20px;
- }
-
- .navLinks li a {
-    font-size: 20px;
-    font-weight: 500;
+ li a{
+    transition: background-color 0.2s ease;  
+    padding: 20px;
+    display: inline-block;
+    text-align: center;
     text-decoration: none;
-    color:#fdd44e;
-    transition: 0.5s;
-    margin-right: 48px;
- }
+    }
+ li a:hover{
+    background-color: #eaf2ff;
+    padding: 20px;
+    }
 
- .navLinks li a:hover {
-    color:#fff8db;
-    text-shadow: 0 0 10px #fff8db;
-    font-size: 22px;
- }
+li {
+    float: left;
+    display:inline;
+    }
+        
+ul {
+    text-align: left;
+    color: white
+        }
+
+a:link{
+    color:#f18b63;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+a:visited{
+    color:hsla(4, 80%, 80%, 0.5);
+    background-color: transparent;
+    text-decoration: none;
+        }
+
+a:hover{
+    color:#fa552c;
+    background-color: transparent;
+    text-decoration: underline overline wavy #fa552c;
+        }
+
 
 @media screen and (max-width:400px) {
     .container { 
