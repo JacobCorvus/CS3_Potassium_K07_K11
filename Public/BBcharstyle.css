@@ -1,7 +1,11 @@
 body {
-    background-image: url("assets/BBBACKGROUND.webp");
+    background-image: url("assets/bg.jpg");
     background-size: cover;
     background-attachment: fixed;
+     background-blend-mode: multiply;
+    background-color: #0c0357;
+    margin: 0;
+    padding: 0;
 }
 
 .introbox {
@@ -16,6 +20,53 @@ body {
     font-family: 'Courier New', Courier, monospace;
 
 }
+
+.navBar {
+    background: rgba(63, 106, 199, 0.37);
+    border-bottom: 1px solid rgba(63, 106, 199, 0.3);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .loogo img{
+    display: flex;
+    height: auto;
+    width: 100px;
+    display: inline-block; 
+    margin: 7px;
+ }
+
+ .loogo img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    color: #fff7db;
+    mix-blend-mode: lighten;
+ }
+
+ .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+ }
+
+ .navLinks li a {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color:#fdd44e;
+    transition: 0.5s;
+    margin-right: 48px;
+ }
+
+ .navLinks li a:hover {
+    color:#fff8db;
+    text-shadow: 0 0 10px #fff8db;
+    font-size: 22px;
+ }
 
 .charactergridcontainer {
     border-color: #000bd3;
