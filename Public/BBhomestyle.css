@@ -78,19 +78,43 @@ h1 {
     border-radius: 30px;
     align-self: center;
  }
- nav {
+ .navBar {
     width: 100%;
     padding: 1rem 5%;
-    background: rgba(36, 37, 119, 0.05);
-    border-bottom: 1px solid rgba(36, 37, 119, 0.1);
+    background: rgba(63, 106, 199, 0.671);
+    border-bottom: 1px solid rgba(63, 106, 199, 0.4);
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
  }
 
  .loogo {
     font-size: 1.5rem;
     font-weight: 700;
     color: rgba(255, 214, 30, 0.952);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+ }
+
+ .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+ }
+
+ .navLinks li a {
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color:#fdd44e;
+    transition: 0.5s;
+ }
+
+ .navLinks li a:hover {
+    color:#fff8db;
+    text-shadow: 0 0 10px #fff8db;
  }
 @media screen and (max-width:400px) {
     .container { 
