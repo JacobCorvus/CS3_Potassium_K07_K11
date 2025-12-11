@@ -89,25 +89,31 @@ h1 {
     padding: 0%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
  }
 
  .loogo img{
     display: flex;
     height: auto;
-    width: 250px;
+    width: 100px;
     display: inline-block; 
+    margin: 7px;
  }
 
- .navLinksLeft, .navLinksRight{
+ .loogo img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    color: #fff7db;
+    mix-blend-mode: screen;
+ }
+
+ .navLinks {
     list-style: none;
     display: flex;
     gap: 20px;
-    padding: 0;
-    margin: 0;
  }
 
- .navLinksLeft li a, .navLinksRight li a {
+ .navLinks li a {
     font-size: 20px;
     font-weight: 500;
     text-decoration: none;
@@ -119,6 +125,7 @@ h1 {
  .navLinks li a:hover {
     color:#fff8db;
     text-shadow: 0 0 10px #fff8db;
+    font-size: 22px;
  }
 
 @media screen and (max-width:400px) {
