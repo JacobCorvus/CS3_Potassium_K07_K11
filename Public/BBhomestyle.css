@@ -52,6 +52,7 @@ h1 {
     display: flex;
     flex: 1 1 300px;
     flex-direction: column;
+    border-radius: 15px;
 }
 
 #quote {
@@ -79,7 +80,7 @@ h1 {
 .container img {
     width: 95%;
     display: block;
-    border-radius: 30px;
+    border-radius: 15px;
     align-self: center;
  }
  .navBar {
@@ -153,12 +154,41 @@ h1 {
 }
 
 .secondarycontainer > div {
-    background: #6a0c7c;         
-    border: 2px solid #eeff59;    
+    background: #1c3352;         
+    border: 2px solid #042c38;    
     padding: 0;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
+    border-radius: 15px;
 }
+
+ .characters img  {
+    width: 250px;
+}
+
+.characters { 
+    position: relative;
+    display: inline-block;
+}
+ .world img {
+    width: 261px;
+}
+ .Gallery img {
+    width: 256px;
+ }
+
+ #page {
+    position: absolute;
+    bottom: 10px;              
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 12px;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.4); /* transparent background */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+ }
