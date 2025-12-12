@@ -16,6 +16,10 @@ h1 {
     color: #fdd44e;
 }
 
+h4, h5 {
+    margin: 5px;
+}
+
 .container {
     max-width: 870px;
     margin: auto;
@@ -47,11 +51,11 @@ h1 {
     background:#3d8996;
     margin: 20px;
     padding: 10px;
-    justify-content: center;
+    align-items: stretch;
     gap: 30px;
     display: flex;
-    flex: 1 1 300px;
     flex-direction: column;
+    flex-grow: 1.5;
     border-radius: 15px;
 }
 
@@ -164,15 +168,14 @@ h1 {
     justify-content: center;
     border-radius: 15px;
 }
-
+.characters, .Gallery, .world { 
+    position: relative;
+    display: inline-block;
+}
  .characters img  {
     width: 250px;
 }
 
-.characters { 
-    position: relative;
-    display: inline-block;
-}
  .world img {
     width: 261px;
 }
@@ -180,15 +183,26 @@ h1 {
     width: 256px;
  }
 
+ .characters img:hover, .world img:hover, .Gallery img:hover {
+    transform: scale(1.03);
+    transition: 0.8s;
+ }
+
  #page {
     position: absolute;
-    bottom: 10px;              
+    width: 90%;
+    bottom: 2px;             
     left: 50%;
     transform: translateX(-50%);
     padding: 5px 12px;
-    border-radius: 6px;
+    border-radius: 15px;
     color: white;
     font-size: 1.2rem;
-    background-color: rgba(0, 0, 0, 0.4); /* transparent background */
+    background-color: rgba(25, 51, 107, 0.616); /* transparent background */
     transition: background-color 0.2s ease, transform 0.2s ease;
+ }
+
+ #page:hover {
+    background-color: rgba(25, 51, 107, 0.856); /* less transparent on hover */
+    transform: translateX(-50%) scale(1.05); /* slight scale up on hover */
  }
