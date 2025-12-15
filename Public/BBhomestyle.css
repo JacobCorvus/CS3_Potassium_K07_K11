@@ -61,7 +61,7 @@ h4 {
     border-color: #1c2e42;
     background-color: #1c2e42;
     margin: 5px;
-    padding: 1px;
+    padding: 10px;
     border-style: solid;
     text-align: center;
     border-radius: 15px;
@@ -230,34 +230,42 @@ h4 {
     border-radius: 15px;
     border-style: solid;
     border-width: 2px;
-    margin: 20px;
     padding: 10px;
-    display: grid;
     margin-top: 1px;
     text-align: center;
-    max-width: 300px;
     background-color: #1c3352;
 }
 
 .characterstuff {
-    overflow: hidden;       
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;      
     padding: 20px;
 }
 
 .characterstuff > div {
-    background: #6a0c7c;         
+    background: #254369;         
     border: 2px solid #042c38;    
+    border-radius: 15px;
     padding: 0;
+    flex-direction: column;
+    display: flex;
     align-items: center;
-    display: block;
 }
 
-h3 {
+.characterstuff h3 {
     background: #042c38;
     color: #ff9417;
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
     letter-spacing: 2px;
-    padding: 10px 0;
-    border-top: 3px solid #042c38;
+    padding: 10px;
+    width: 94%;
+    margin: 0;
+    border-radius: 15px
+}
+
+.characterstuff a {
+    text-decoration: none;
+    color: #ff9417;
 }
