@@ -202,6 +202,18 @@ h4 {
     width: 276px;
  }
 
+ .struct img  {
+    width: 274px;
+}
+
+ .sec img {
+    width: 279px;
+}
+
+ .marsh img {
+    width: 272px;
+ }
+
  .characters img:hover, .world img:hover, .Gallery img:hover {
     transform: scale(1.03);
     transition:0.8s;
@@ -268,4 +280,29 @@ h4 {
 .characterstuff a {
     text-decoration: none;
     color: #ff9417;
+}
+
+.searchbar {
+    margin: 20px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 300px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #1c2e42;
+    background-color:#1c2e42;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+input{
+    flex: 1;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    background: #ffe48b;
+    color:#5443ee;
 }
