@@ -5,8 +5,9 @@
         <meta name ="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Graveyard Shift Productions">
         <title> Bluestains | Bluebloods Wikipedia Characters </title>
-         <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
         <link rel="stylesheet" href="BBhomestyle.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
         <link rel="icon" href="assets/headlogo.png">
     </head>
     <body>
@@ -19,8 +20,8 @@
                     <img src="assets/PATRON.png">
                 </a>
                 <ul class="navLinks">
-                    <li><a href ="a">Gallery</a></li>
-                    <li><a href ="a">Story</a></li>
+                    <li><a href ="BluebloodsGallery.html">Gallery</a></li>
+                    <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
         </nav>
 
@@ -33,14 +34,13 @@
         
             </p>
         </div>
+
+        <form onsubmit="return false;">
         <div class="searchbar">
-           <div class="row">
-                <input type="text" id="input-box" placeholder="Search for a character..."
-                autocomplete="off"
-                >
-                <button>search</button>
-           </div>
+            <span class="material-symbols-outlined"> search </span>
+                <input type="search" id="input-box" placeholder="Search for a character..." autocomplete="off">
             </div>
+        </form>
             <div class="charactersection">
                 <div class="characterstuff">
                 <div class="ArtemisSallow">
@@ -77,4 +77,35 @@
                 </div>
             </div>
     </div>
+
+    <script>
+        const characters = [
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+        ];
+
+        const inputBox = document.getElementById("input-box");
+
+        inputBox.addEventListener("keyup", function(e) {
+            if (e.key === "Enter") {
+                const query = inputBox.value.trim().toLowerCase();
+                if (!query) return;
+
+                const result = characters.find(c => c.name.toLowerCase() === query);
+
+                if (result) {
+                    window.location.href = result.link;
+                } else {
+                    alert("Character Missing");
+                }
+            }
+        });
+    </script>
     </body>
+</html>

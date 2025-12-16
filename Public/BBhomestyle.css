@@ -6,6 +6,7 @@ body {
     background-color: #0c0357;
     margin: 0;
     padding: 0;
+    margin-bottom: 40px;
 }
 
 h1 {
@@ -83,7 +84,7 @@ h4 {
 
 #quote {
     font-style: italic;
-    font: 30px 'Papyrus', sans-serif;
+    font: 30px 'Coromant Garamond', serif;
     text-align: center; 
     color:darkorange;
     text-decoration: italic;
@@ -299,15 +300,6 @@ h4 {
     padding: 10px;
 }
 
-input{
-    flex: 1;
-    height: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: large;
-    background: #ffe48b;
-    color:#5443ee;
-}
-
 .wrapper-gallery {
     margin: 0;
 }
@@ -319,13 +311,13 @@ input{
 
 .gallery-overlay {
     position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 12px;
+    inset: 0;
     background: rgba(0, 0, 0, 0.65);
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .gallery-overlay a {
@@ -337,13 +329,13 @@ input{
 }
 
 .gallery-img:hover .gallery-overlay {
-    transform: translateY(0);
+    opacity: 1;
 }
 
 #index-gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(200px, 1fr);
     grid-gap: 10px;
     grid-template-areas: 
     "img1 img3 img4 img6"
@@ -351,42 +343,48 @@ input{
 }
 
 #index-gallery .gallery-img {
+    aspect-ratio: 1 / 1;
     width: 100%;
-    height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 #index-gallery .img1 {
     grid-area: img1;
-    background-image: url("../assets/smol/img1.jpg");
+    background-image: url("assets/img1.jpg");
 }
 
 #index-gallery .img2 {
     grid-area: img2;
-    background-image: url("../assets/smol/img2.jpg");
+    background-image: url("assets/img2.jpg");
 }
 
 #index-gallery .img3 {
     grid-area: img3;
-    background-image: url("../assets/smol/img3.jpg");
+    background-image: url("assets/img3.jpg");
+    aspect-ratio: auto;
+    grid-row: span 2;
 }
 
 #index-gallery .img4 {
     grid-area: img4;
-    background-image: url("../assets/smol/img4.jpg");
+    background-image: url("assets/img4.jpg");
 }
 
 #index-gallery .img5 {
     grid-area: img5;
-    background-image: url("../assets/smol/img5.jpg");
+    background-image: url("assets/img5.jpg");
 }
 
 #index-gallery .img6 {
     grid-area: img6;
-    background-image: url("../assets/smol/img6.jpg");
+    background-image: url("assets/img6.jpg");
+    grid-row: span 2;
+    aspect-ratio: auto;
 }
 
 #index-gallery p {
@@ -419,4 +417,106 @@ input{
     font-size: 30px;
     color: white;
     cursor: pointer;
+}
+
+.gallery-img {
+    transition: transform 0.4s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+}
+
+.img-popup {
+    inset: 0;
+    position: fixed;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.9);
+}
+
+.img-popup img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.popup-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 5vw;
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0 2vw;
+}
+
+#prev-btn { 
+    left: 2vw;
+}
+
+#next-btn { 
+    right: 2vw;
+}
+
+@media screen and (max-width: 1024px) {
+    #index-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #index-gallery {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+.searchbar {
+    width: 90%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border-color: #010d1f;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.searchbar span {
+    color:#fdd44e;
+    font-size: 24px;
+}
+.searchbar input {
+    flex: 1;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    background: transparent;
+    font:#010d1f;
+    outline: none;
+    border: none;
+}
+
+.searchbar input::placeholder {
+    color:#ffeeb8;
+}
+
+.searchbar input:focus {
+    border-color: #ff9417;
+    box-shadow:#010d1f;
 }

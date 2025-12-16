@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name ="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Graveyard Shift Productions">
-        <title> Bluestains | Bluebloods Wikipedia </title>
+        <title> Bluestains | Bluebloods Wikipedia Gallery</title>
         <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
         <link rel="stylesheet" href="BBhomestyle.css">
         <link rel="icon" href="assets/headlogo.png">
@@ -20,11 +20,17 @@
                     <img src="assets/PATRON.png">
                 </a>
                 <ul class="navLinks">
-                    <li><a href ="a">Gallery</a></li>
-                    <li><a href ="a">Story</a></li>
+                    <li><a href ="BluebloodsGallery.html">Gallery</a></li>
+                    <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
         </nav>
         <div class="container">
+            <h1> 
+                <div class="line"></div>
+                Gallery
+                <div class="line"></div>
+            </h1>
+
             <section id="index-gallery" class="wrapper-gallery">
             <div class="gallery-img img1">
                 
@@ -33,52 +39,79 @@
             </div>
 
             <div class="gallery-img img3">
-                <div class="gallery-overlay"> <a href="assets/img3.pdf"> Artemis Concept </a></div>
+                <div class="gallery-overlay"> <a href="assets/img3.jpg"> Artemis Concept </a></div>
             </div>
 
             <div class="gallery-img img4">
-                <div class="gallery-overlay"> <a href="assets/img4.jpg"> Artemis Portrait </a></div>
+                <div class="gallery-overlay"> <a href="assets/img4.jpg"> Area Field </a></div>
             </div>
 
             <div class="gallery-img img6">
-                <div class="gallery-overlay"> <a href="assets/img6.pdf"> Area Concept </a></div>
+                <div class="gallery-overlay"> <a href="assets/img6.jpg"> Polaris Concept </a></div>
             </div>
 
             <div class="gallery-img img2">
-                <div class="gallery-overlay"> <a href="assets/img2.jpg"> Apollo Portrait </a></div>
+                <div class="gallery-overlay"> <a href="assets/img2.jpg"> Polaris Concept </a></div>
             </div>
 
             <div class="gallery-img img5">
-                <div class="gallery-overlay"> <a href="assets/img5.jpg"> Polaris Work </a></div>
+                <div class="gallery-overlay"> <a href="assets/img5.jpg"> Apollo Portrait </a></div>
             </div>
         </section>
         </div>
 
+        <div id="img-popup" class="img-popup" style="display:none;">
+            <img src="" alt="popup">
+            <button id="prev-btn" class="popup-nav">&#10094;</button>
+            <button id="next-btn" class="popup-nav">&#10095;</button>
+        </div>
+
         <script>
             const galleryImages = document.querySelectorAll(".gallery-img");
+            const popup = document.getElementById("img-popup");
+            const popupImg = popup.querySelector("img");
+            const closeBtn = document.getElementById("popup-close");
+            const prevBtn = document.getElementById("prev-btn");
+            const nextBtn = document.getElementById("next-btn");
+
+            let currentIndex = 0;
+
+            const imgUrls = Array.from(galleryImages).map(img => {
+                const overlayLink = img.querySelector("a");
+                return overlayLink ? overlayLink.href : "";
+            });
+
+            function openPopup(index) {
+                currentIndex = index;
+                popupImg.src = imgUrls[currentIndex];
+                popup.style.display = "flex";
+            }
 
             galleryImages.forEach((img, index) => {
                 img.addEventListener("click", () => {
-                    const overlayLink = img.querySelector("a");
-                    if (!overlayLink) return;
-
-                    const imgSrc = overlayLink.getAttribute("href");
-
-                    const popup = document.createElement("div");
-                    popup.classList.add("img-popup");
-
-                    popup.innerHTML = `
-                        <span class="popup-close">X</span>
-                        <img src="${imgSrc}">
-                    `;
-
-                    document.body.appendChild(popup);
-
-                    popup.querySelector(".popup-close").onclick = () => {
-                        popup.remove();
-                    };
+                    openPopup(index);
                 });
             });
+
+            prevBtn.addEventListener("click", e => {
+                e.stopPropagation();
+                currentIndex = (currentIndex - 1 + imgUrls.length) % imgUrls.length;
+                popupImg.src = imgUrls[currentIndex];
+            });
+
+            nextBtn.addEventListener("click", e => {
+                e.stopPropagation();
+                currentIndex = (currentIndex + 1) % imgUrls.length;
+                popupImg.src = imgUrls[currentIndex];
+            });
+
+            popup.addEventListener("click", e => {
+                if(e.target === popup) {
+                    popup.style.display = "none";
+                }
+            });
+
         </script>
+        
     </body>
 </html>
