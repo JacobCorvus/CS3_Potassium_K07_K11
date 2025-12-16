@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Graveyard Shift Productions">
+        <title> Bluestains | Bluebloods Wikipedia </title>
+        <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
+        <link rel="stylesheet" href="BBhomestyle.css">
+        <link rel="icon" href="assets/headlogo.png">
+    </head>
+    <body>
+
+        <nav class="navBar">
+                <ul class="navLinks">
+                    <li><a href ="BluebloodsCharacters.html">Characters</a></li>
+                    <li><a href="BluebloodsWorld.html">World</a></li>
+                </ul>
+                <a href="BluebloodsHome.html" class="loogo">
+                    <img src="assets/PATRON.png">
+                </a>
+                <ul class="navLinks">
+                    <li><a href ="a">Gallery</a></li>
+                    <li><a href ="a">Story</a></li>
+                </ul>
+        </nav>
+        <div class="container">
+            <section id="index-gallery" class="wrapper-gallery">
+            <div class="gallery-img img1">
+                
+            <div class="gallery-overlay"> <a href="assets/img1.jpg">
+                 Apollo Concept </a></div>
+            </div>
+
+            <div class="gallery-img img3">
+                <div class="gallery-overlay"> <a href="assets/img3.pdf"> Artemis Concept </a></div>
+            </div>
+
+            <div class="gallery-img img4">
+                <div class="gallery-overlay"> <a href="assets/img4.jpg"> Artemis Portrait </a></div>
+            </div>
+
+            <div class="gallery-img img6">
+                <div class="gallery-overlay"> <a href="assets/img6.pdf"> Area Concept </a></div>
+            </div>
+
+            <div class="gallery-img img2">
+                <div class="gallery-overlay"> <a href="assets/img2.jpg"> Apollo Portrait </a></div>
+            </div>
+
+            <div class="gallery-img img5">
+                <div class="gallery-overlay"> <a href="assets/img5.jpg"> Polaris Work </a></div>
+            </div>
+        </section>
+        </div>
+
+        <script>
+            const galleryImages = document.querySelectorAll(".gallery-img");
+
+            galleryImages.forEach((img, index) => {
+                img.addEventListener("click", () => {
+                    const overlayLink = img.querySelector("a");
+                    if (!overlayLink) return;
+
+                    const imgSrc = overlayLink.getAttribute("href");
+
+                    const popup = document.createElement("div");
+                    popup.classList.add("img-popup");
+
+                    popup.innerHTML = `
+                        <span class="popup-close">X</span>
+                        <img src="${imgSrc}">
+                    `;
+
+                    document.body.appendChild(popup);
+
+                    popup.querySelector(".popup-close").onclick = () => {
+                        popup.remove();
+                    };
+                });
+            });
+        </script>
+    </body>
+</html>
