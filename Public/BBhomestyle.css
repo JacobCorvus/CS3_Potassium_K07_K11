@@ -212,23 +212,29 @@ h4 {
     position: fixed;
     display: none;
     inset: 0;
-    background:rgba(0, 0, 0, 0.65);
+    background:rgba(0, 0, 0, 0.8);
     align-items: center;
     justify-content: center;
     z-index: 1000;
 }
 
 .message {
-    background: white;
+    background: rgb(0, 0, 0);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+}
+
+.message h2, p{
+    color: white;
+
 }
 
 .closeWarn {
     margin-top: 20px;
     border: none;
     padding: 8px;
+    align-items: center;
 }
 
 .FirstChapter {

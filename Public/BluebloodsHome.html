@@ -12,15 +12,15 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-            const warning = document.getElementById("firstWarning");
+            const warning = document.getElementById("warning");
             const closeWarn = document.getElementById("closeWarn");
 
             if(!sessionStorage.getItem("visited")){
-                modal.style.display = "flex";
+                warning.style.display = "flex";
             }
 
-            closeBtn.addEventListener("click", function(){
-                modal.style.display = "none";
+            closeWarn.addEventListener("click", function(){
+                warning.style.display = "none";
                 sessionStorage.setItem("visited", "true");
             });
         });
@@ -31,7 +31,9 @@
             <div class="message">
                 <h2>Do not believe them</h2>
                 <p>this site is not what it seems, do everything in your power to find what they hide.
-                    <br> Don't lose what you dream of.
+                    <br> 
+                    Don't lose what you dream of.
+                    <br>
                     <button id="closeWarn">V gehfg lbh</button>
                 </p>
             </div>
