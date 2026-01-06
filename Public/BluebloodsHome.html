@@ -9,7 +9,33 @@
         <link rel="stylesheet" href="BBhomestyle.css">
         <link rel="icon" href="assets/headlogo.png">
     </head>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const warning = document.getElementById("firstWarning");
+            const closeWarn = document.getElementById("closeWarn");
+
+            if(!localStorage.getItem("visited")){
+                modal.style.display = "flex";
+            }
+
+            closeBtn.addEventListener("click", function(){
+                modal.style.display = "none";
+                localStorage.setItem("visited", "true");
+            });
+        });
+    </script>
+
     <body>
+        <div id="warning">
+            <div class="message">
+                <h2>Do not believe them</h2>
+                <p>this site is not what it seems, do everything in your power to find what they hide.
+                    <br> Don't lose what you dream of.
+                    <button id="closeWarn">V gehfg lbh</button>
+                </p>
+            </div>
+        </div>
         <nav class="navBar">
             <ul class ="dropDown">
                 <li class="dropBtn">
