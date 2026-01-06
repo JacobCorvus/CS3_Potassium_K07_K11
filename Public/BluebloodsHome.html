@@ -15,13 +15,13 @@
             const warning = document.getElementById("firstWarning");
             const closeWarn = document.getElementById("closeWarn");
 
-            if(!localStorage.getItem("visited")){
+            if(!sessionStorage.getItem("visited")){
                 modal.style.display = "flex";
             }
 
             closeBtn.addEventListener("click", function(){
                 modal.style.display = "none";
-                localStorage.setItem("visited", "true");
+                sessionStorage.setItem("visited", "true");
             });
         });
     </script>
