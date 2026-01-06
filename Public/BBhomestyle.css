@@ -127,6 +127,45 @@ h4 {
     list-style: none;
  }
 
+ .dropCon {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1c2e42;
+    padding: 0;
+    min-width: 150px;
+    z-index: 1000;
+ }
+
+ .dropBtn:hover .dropCon{
+    display: block;
+ }
+
+ .dropDown li a:hover {
+    background-color: #254369;
+    color: #fff8db;
+ }
+
+ .dropCon li{
+    list-style: none;
+ }
+
+ .dropCon li a {
+    padding: 10px 16px;
+    color: #fdd44e;
+    display: block;
+ }
+
+ .dropbtn img {
+    width: 32px;
+    transition: transform 0.3s ease;
+}
+
+.dropbtn:hover img {
+    transform: scale(1.1);
+}
+
  .loogo img{
     display: flex;
     height: auto;
