@@ -601,3 +601,52 @@ h4 {
     border-color: #ff9417;
     box-shadow:#010d1f;
 }
+
+#form {
+    width: 300px;
+    margin: 2vh auto;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.inputCon {
+    color:#010d1f;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputCon input {
+    border: 2px solid #010d1f;
+    border-radius: 4px;
+    display: block;
+    width: 90%;
+    padding: 5px;
+}
+
+.inputCon input:focus {
+    outline: 0;
+}
+
+.inputCon.success input {
+    border-color: aquamarine;
+}
+
+.inputCon.error input {
+    border-color: rgb(255, 127, 127);
+}
+
+.inputCon.error {
+    color: rgb(255, 127, 127);
+}
+
+#form button {
+    padding: 10px;
+    margin-top: 6vh;
+    width: 80%;
+    background-color: #010d1f;
+    font: 16px 'Coromant Garamond', serif;
+    color:#ffeeb8;
+    border-radius: 15px;
+    border: none;
+}
