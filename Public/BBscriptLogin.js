@@ -6,38 +6,79 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
     const password2 = document.getElementById("password2");
 
-    form.addEventListener("submit", e =>{
+    const dialog = document.getElementById("agentDialog");
+    const dialogText = document.getElementById("dialogText");
+
+    const users = JSON.parse(localStorage.getItem("users")) || {};
+
+    const showDialog = (text) => {
+        dialogText.textContent = text;
+        dialog.classList.remove("dialogHidden");
+    };
+
+    const hideDialog = () => {
+        dialog.classList.add("dialogHidden");
+    };
+
+    form.addEventListener("submit", e => {
         e.preventDefault();
 
-        validateInputs();
+        const result = validateInputs();
+        if (!result.valid) return;
 
-        if (usernameValue && isValidEmail(emailValue) && passwordValue.length >= 8 && passwordValue === password2Value) {
-            form.onsubmit();
+        const { usernameValue, emailValue, passwordValue } = result;
+
+        if (users[emailValue]) {
+            if (users[emailValue].password === passwordValue) {
+                sessionStorage.setItem("loggedInUser", emailValue);
+                window.location.href = "AccDetails.html";
+            } else {
+                setError(password, "Incorrect access code");
+            }
+            return;
         }
+
+        showDialog("Account not a verified agent account. Please try again.");
+
+        setTimeout(() => {
+            hideDialog();
+            showDialog("Loading...");
+
+            setTimeout(() => {
+                users[emailValue] = {
+                    username: usernameValue,
+                    password: passwordValue
+                };
+
+                localStorage.setItem("users", JSON.stringify(users));
+                sessionStorage.setItem("loggedInUser", emailValue);
+
+                showDialog(`Access granted. Welcome, Agent ${usernameValue}.`);
+
+                setTimeout(() => {
+                    window.location.href = "AccDetails.html";
+                }, 1800);
+
+            }, 1200);
+        }, 1500);
     });
 
     const setError = (element, message) => {
         const inputCon = element.parentElement;
-        const errorDisplay = inputCon.querySelector(".error");
-
-        errorDisplay.innerText = message;
+        inputCon.querySelector(".error").innerText = message;
         inputCon.classList.add("error");
         inputCon.classList.remove("success");
-    }
+    };
 
     const setSuccess = element => {
         const inputCon = element.parentElement;
-        const errorDisplay = inputCon.querySelector(".error");
-
-        errorDisplay.innerText = "";
+        inputCon.querySelector(".error").innerText = "";
         inputCon.classList.add("success");
         inputCon.classList.remove("error");
     };
 
-    const isValidEmail = email => {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
+    const isValidEmail = email =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.toLowerCase());
 
     const validateInputs = () => {
         const usernameValue = username.value.trim();
@@ -45,35 +86,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const passwordValue = password.value.trim();
         const password2Value = password2.value.trim();
 
-        if(usernameValue ==="") {
+        let valid = true;
+
+        if (!usernameValue) {
             setError(username, "Username is required");
-        } else {
-            setSuccess(username);
-        }
+            valid = false;
+        } else setSuccess(username);
 
-        if(emailValue ==="") {
+        if (!emailValue) {
             setError(email, "Email is required");
+            valid = false;
         } else if (!isValidEmail(emailValue)) {
-            setError(email, "Provide a valid email address");
-        } else {
-            setSuccess(email);
-        }
+            setError(email, "Provide a valid email");
+            valid = false;
+        } else setSuccess(email);
 
-        if(passwordValue ==="") {
-            setError(password, "Password is required");
-        } else if (passwordValue.length < 8) {
-            setError(password, "Password must be at least 8 characters.");
-        } else {
-            setSuccess(password);
-        }
+        if (passwordValue.length < 8) {
+            setError(password, "Password must be at least 8 characters");
+            valid = false;
+        } else setSuccess(password);
 
-        if(password2Value ==="") {
-            setError(password2, "Please confirm your password");
-        } else if (password2Value !== passwordValue) {
+        if (password2Value !== passwordValue) {
             setError(password2, "Passwords do not match");
-        } else {
-            setSuccess(password2);
-        }
-    };
+            valid = false;
+        } else setSuccess(password2);
 
+        return { valid, usernameValue, emailValue, passwordValue };
+    };
 });
