@@ -42,7 +42,7 @@
             <h4> Access your missions and profile here. </h4>
             <div class="line"></div>
         <div class="con">
-            <form id="form" action="/">
+            <form id="form" novalidate autocomplete="off">
                 <div class="inputCon">
                     <label for="username">Username:</label>
                     <input id="username" name="username" type="text" required>
@@ -50,17 +50,17 @@
                 </div>
                 <div class="inputCon">
                     <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Put in your own email" autofocus>
+                    <input id="email" name="email" type="text" placeholder="Put in your own email" autocomplete="off">
                     <div class="error"></div>
                 </div>
                 <div class="inputCon">
                     <label for="password">Password</label>
-                    <input id="password"name="password"type="password" placeholder="Any password works too">
+                    <input id="password"name="password"type="password" placeholder="Any password works too" autocomplete="new-password">
                     <div class="error"></div>
                 </div>
                 <div class="inputCon">
                     <label for="password2">Confirm Password</label>
-                    <input id="password2"name="password2"type="password" placeholder="You will be let in">
+                    <input id="password2"name="password2"type="password" placeholder="You will be let in" autocomplete="new-password">
                     <div class="error"></div> 
                 </div>
                 <button type="submit">Verify</button>
