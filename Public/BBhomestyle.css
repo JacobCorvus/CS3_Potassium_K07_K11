@@ -610,7 +610,7 @@ h4 {
 }
 
 .inputCon {
-    color:#010d1f;
+    color:#cddef7;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -638,6 +638,7 @@ h4 {
 
 .inputCon.error {
     color: rgb(255, 127, 127);
+    font-weight: bold;
 }
 
 #form button {

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const form = document.getElementById("form");
     const username = document.getElementById("username");
     const email = document.getElementById("email");
@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         validateInputs();
+
+        if (usernameValue && isValidEmail(emailValue) && passwordValue.length >= 8 && passwordValue === password2Value) {
+            form.onsubmit();
+        }
     });
 
     const setError = (element, message) => {
