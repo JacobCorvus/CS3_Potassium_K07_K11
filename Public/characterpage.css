@@ -1,0 +1,29 @@
+.charpageimbox {
+    text-align: center;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    border-color: black;
+    border-style: solid;
+
+    display: inline-block;
+}
+.charpagecontainer {
+    margin: 20px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    border-color: black;
+    border-style: solid;
+    display: inline-block;
+   
+}
+
+.parentchar {
+    align-items: center;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    border-color: black;
+    border-style: solid;
+    max-width: 800px;
+    display:flexbox;
+}
