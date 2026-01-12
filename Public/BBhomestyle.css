@@ -610,7 +610,7 @@ h4 {
 }
 
 .inputCon {
-    color:#cddef7;
+    color:#f4f7cd;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -622,6 +622,8 @@ h4 {
     display: block;
     width: 90%;
     padding: 5px;
+    background-color: #f4f7cd;
+
 }
 
 .inputCon input:focus {
