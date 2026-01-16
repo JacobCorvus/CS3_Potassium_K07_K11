@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00796b;
+        }
+
+        .box {
+            background-color: #ffffff;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+
+        input:hover, select:hover, textarea:hover {
+            box-shadow: 0 0 6px rgba(177, 255, 246, 0.797);
+            border-color: #a1fff4;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            box-shadow: 0 0 8px rgba(0, 121, 107, 0.8);
+            border-color: #00796b;
+            outline: none;
+        }
+
+        input.error, textarea.error, select.error {
+            border-color: #dc3545;
+            box-shadow: 0 0 8px rgba(220, 53, 69, 0.9);
+            background-color: #fff5f5;
+        }
+
+        input.valid, textarea.valid, select.valid {
+            border-color: #28a745;
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
+            background-color: #f6fff8;
+        }
+
+        input, select, textarea {
+            width: calc(100% - 160px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .popUp1, .popUp2, .popUp3 {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .popUp1.show, .popUp2.show, .popUp3.show {
+            display: block;
+        }
+
+        input[type="radio"] {
+            width: 20px;
+        }
+    </style>
+    <body>
+        <h1>Sign Up to donate to Team Trees!</h1>
+        <div class = "box">
+            <form method="post" action="submit" Id ="donationForm">
+                <label for ="studentID">Student ID:</label>
+                <input type="numeric" id="studentID" name="studentID" novalidate><br><br>
+
+                <label for ="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" novalidate><br><br>
+
+                <label for ="bday">Birthday:</label>
+                <input type="date" id="bday" name="bday" novalidate><br><br>
+
+                <label for ="email">Email:</label>
+                <input type="email" id="email" name="email" novalidate><br><br>
+
+                <label for ="phoneNum">Phone Number:</label>
+                <input type="numeric" id="phoneNum" name="phoneNum" novalidate><br><br>
+
+                <label for ="grade">Grade Level:</label>
+                <select id="grade" name="grade" required>
+                    <option value="grade7">Grade 7</option>
+                    <option value="grade8">Grade 8</option>
+                    <option value="grade9">Grade 9</option>
+                    <option value="grade10">Grade 10</option>
+                    <option value="grade11">Grade 11</option>
+                    <option value="grade12">Grade 12</option>
+                </select>
+                
+                <p>Student Type:</p>
+                <input type="radio" id="internal" name ="intExt" value="internal">
+                <label for="internal">Internal Student</label>
+                <input type="radio" id="external" name ="intExt" value="external">
+                <label for="external">External Student</label><br><br>
+
+                <label for="donationAmount">Donation Amount:</label>
+                <select id="donationAmount" name="donationAmount" novalidate>
+                    <option value="5"> ₱5 </option>
+                    <option value="10"> ₱10 </option>
+                    <option value="15"> ₱15 </option>
+                    <option value="20"> ₱20 </option>
+                    <option value="25"> ₱25 </option>
+                </select><br><br>
+
+                <label for="textArea">Why do you want to donate?</label>
+                <textarea id="textArea" name="textArea" rows="4" cols="67"></textarea><br><br>
+
+                <button type="submit" value="Submit">Submit</button> <br><br>
+                <button type="reset" value="Reset">Reset</button>
+            </form>
+        </div>
+
+        <div class="popUp1">
+            <span>Are you sure you want to submit this form?</span>
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+
+        <div class="popUp2">
+            <span>Your form is incomplete, please fill in the required information.</span>
+            <br><br>
+            <button id="okBtn">Okay</button>
+        </div>
+
+        <div class="popUp3">
+            <span>Are you sure you want to reset this form?</span>
+            <button id="yesBtn2">Yes</button>
+            <button id="noBtn2">No</button>
+        </div>
+
+    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("donationForm");
+            const studentID = document.getElementById("studentID");
+            const fullName = document.getElementById("fullName");
+            const bday = document.getElementById("bday");
+            const email = document.getElementById("email");
+            const phoneNum = document.getElementById("phoneNum");
+            const grade = document.getElementById("grade");
+            const studentType = document.getElementsByName("intExt");
+            const donationAmount = document.getElementById("donationAmount");
+            const textArea = document.getElementById("textArea");
+
+
+            const fields = document.querySelectorAll("#studentID, #fullName, #bday, #email, #phoneNum, #grade, #donationAmount");
+            let goReset = false;
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();     
+                
+                 const studentTypeVal = [...studentType].some(radio => radio.checked);
+
+                if (!studentID.value || !fullName.value || !bday.value || !email.value || !phoneNum.value || !grade.value || !donationAmount.value) {
+                    document.querySelector(".popUp2").classList.add("show");
+                } else {
+                    document.querySelector(".popUp1").classList.add("show");
+                }
+            });
+
+            form.addEventListener("reset", function(event) {
+                if(!goReset) {
+                    event.preventDefault();
+                    document.querySelector(".popUp3").classList.add("show");
+                } else {
+                    studentID.value = "";
+                    fullName.value = "";
+                    bday.value = "";
+                    email.value = "";
+                    phoneNum.value = "";
+                    grade.value = "";
+                    intExt.value = "";
+                    donationAmount.value = "";
+                    textArea.value = "";
+                };
+            });  
+            
+            document.getElementById("yesBtn").addEventListener("click", () => {
+            document.querySelector(".popUp1").classList.remove("show");
+             form.submit(); // actually submit
+            });
+
+            document.getElementById("noBtn").addEventListener("click", () => {
+                document.querySelector(".popUp1").classList.remove("show");
+            });
+
+            document.getElementById("yesBtn2").addEventListener("click", () => {
+               goReset = true;
+               document.querySelector(".popUp3").classList.remove("show");
+               form.goReset = true;
+                form.reset();
+            });
+
+            document.getElementById("noBtn2").addEventListener("click", () => {
+                document.querySelector(".popUp3").classList.remove("show");
+            });
+
+            document.getElementById("okBtn").addEventListener("click", () => {
+                document.querySelector(".popUp2").classList.remove("show");
+            });
+
+            fields.forEach(field => {
+                field.addEventListener("blur", () => {
+                    if (field.value.trim() === "") {
+                        field.classList.add("error");
+                        field.classList.remove("valid");
+                    } else {
+                        field.classList.remove("error");
+                        field.classList.add("valid");
+                    }
+                });
+            });
+        });
+    </script>
+</html>
