@@ -1,11 +1,118 @@
-.charpageimbox {
+.navBar {
+    background: rgba(63, 106, 199, 0.37);
+    border-bottom: 1px solid rgba(63, 106, 199, 0.3);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding: 0%;
+    display: flex;
+    position: relative;
+    align-items: center;
+ }
+
+ .centered{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+ }
+
+ .dropDown {
+    position: absolute;
+    left: 20px;
+    list-style: none;
+ }
+
+ .dropCon {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 20;
+    background-color: #1c2e42;
+    padding: 0;
+    min-width: 150px;
+    z-index: 1000;
+ }
+
+ .dropBtn:hover .dropCon{
+    display: block;
+ }
+
+ .dropDown li a:hover {
+    background-color: #254369;
+    color: #fff8db;
+ }
+
+ .dropCon li{
+    list-style: none;
+ }
+
+ .dropCon li a {
+    padding: 10px 16px;
+    color: #fdd44e;
+    display: block;
+ }
+
+ .dropbtn img {
+    width: 32px;
+    transition: transform 0.3s ease;
+}
+
+.dropbtn:hover img {
+    transform: scale(1.1);
+}
+
+ .loogo img{
+    display: flex;
+    height: auto;
+    width: 100px;
+    display: inline-block; 
+    margin: 7px;
+ }
+
+ .loogo img:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    color: #fff7db;
+    mix-blend-mode: lighten;
+ }
+
+ .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+ }
+
+ .navLinks li a {
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color:#fdd44e;
+    transition: 0.5s;
+    margin-right: 48px;
+ }
+
+ .navLinks li a:hover {
+    color:#fff8db;
+    text-shadow: 0 0 10px #fff8db;
+    font-size: 22px;
+ }
+
+@media screen and (max-width:400px) {
+    .container { 
+        flex: 100%;
+    }
+}
+
+.charpageimbox , .charpagecontainer {
     text-align: center;
     border-radius: 15px;
     background-color: #f0f0f0;
-    border-color: black;
     border-style: solid;
-
-    display: inline-block;
+    border-width: 2px;
+    padding: 10px;
+    background-color: #1c3352;
+    margin: 20px;
+    display: flexbox;
 }
 
 body {
@@ -24,7 +131,6 @@ h1 {
     text-align: center;
     font-family: 'Coromant Garamond', serif;
     color: #ff9417;
-    background-color: #1c2e42;
     padding: 7px;
     margin: 5px;
     border-radius: 15px;
@@ -68,6 +174,24 @@ h4 {
     justify-content: center;
     justify-self: center;
 }
+
+.charactersection {
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin-top: 1px;
+    text-align: center;
+    background-color: #1c3352;
+}
+
+.characterstuff {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;      
+    padding: 20px;
+}
+
 .welcomebox {
     border-color: #1c2e42;
     background-color: #1c2e42;
@@ -90,15 +214,4 @@ h4 {
     flex-wrap: wrap;
     justify-content: center;
     border-radius: 15px;
-}
-
-.charpagecontainer {
-    align-items: center;
-    margin: 20px;
-    border-radius: 15px;
-    background-color: #f0f0f0;
-    border-color: black;
-    border-style: solid;
-    max-width: 800px;
-    display:flexbox;
 }
