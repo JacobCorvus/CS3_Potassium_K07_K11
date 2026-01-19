@@ -13,7 +13,7 @@
     <body>
         <nav class="navBar">
             <ul class ="dropDown">
-                <li class="dropBtn">
+                <li class="dropBtn" id="menuToggle">
                 <img src="assets/Menu.png">
                     <ul class="dropCon">
                         <li><a href ="AgAcc.html">Agents Account</a></li>
@@ -35,6 +35,20 @@
                     <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
             </div>
+            <script>
+                const menuToggle = document.getElementById("menuToggle");
+
+                if (menuToggle) {
+                    menuToggle.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        menuToggle.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function() {
+                    menuToggle.classList.remove("open");
+                });
+                }
+                </script>
         </nav>
        <div class="container">
         <div class="welcomebox">
@@ -55,12 +69,12 @@
             <div class="charactersection">
                 <div class="characterstuff">
                 <div class="ArtemisSallow">
-                    <img src="assets/standin.png">
+                    <img src="assets/ARTEMISSALLOWIMAGE.webp">
                     <h3><a href="ArtemisSallow.html"> Artemis Sallow </a></h3>
                 </div>
                 <div class="QiyaraZhou">
                     <img src="assets/standin.png">
-                    <h3><a href="a"> Qiyara Zhou </a></h3>
+                    <h3><a href="QiyaraZhou.html"> Qiyara Zhou </a></h3>
                 </div>
                 <div class="ChiyoFukiwara">
                     <img src="assets/standin.png">
@@ -71,12 +85,12 @@
                     <h3><a href="a"></a> Yaban Franx </a></h3>
                 </div>
                 <div class="ApolloSallow">
-                    <img src="assets/standin.png">
+                    <img src="assets/APOLLOSALLOWIMAGE.webp">
                     <h3><a href="ApolloSallow.html"> Apollo Sallow </a></h3>
                 </div>
                 <div class="Polaris">
                     <img src="assets/standin.png">
-                    <h3><a href="a"> Polaris </a></h3>
+                    <h3><a href="Polaris.html"> Polaris </a></h3>
                 </div>
                 <div class="Kairus">
                     <img src="assets/standin.png">
@@ -84,7 +98,7 @@
                 </div>
                 <div class="Elian">
                     <img src="assets/standin.png">
-                    <h3><a href="a"> Elian </a></h3>
+                    <h3><a href="a"> Samsara </a></h3>
                 </div>
             </div>
     </div>
@@ -94,7 +108,7 @@
             {name: "Artemis Sallow", link: "ArtemisSallow.html"},
             {name: "Apollo Sallow", link: "ApolloSallow.html"},
             {name: "Polaris", link: "Polaris.html"},
-            {name: "Qiyara Zhou", link: ".html"},
+            {name: "Qiyara Zhou", link: "QiyaraZhou.html"},
             {name: "Chiyo Fukiwara", link: "ChiyoFukiwara.html"},
             {name: "Kairus", link: "Kairus.html"},
             {name: "Elian", link: "Elian.html"},

@@ -1,26 +1,6 @@
 <!DOCTYPE html>
 <html>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #00796b;
-        }
-
-        .box {
-            background-color: #ffffff;
-            border: 2px solid #00796b;
-            border-radius: 10px;
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
 
         label {
             display: inline-block;
@@ -40,13 +20,13 @@
         }
 
         input.error, textarea.error, select.error {
-            border-color: #dc3545;
+            border-color: #b30000;
             box-shadow: 0 0 8px rgba(220, 53, 69, 0.9);
             background-color: #fff5f5;
         }
 
         input.valid, textarea.valid, select.valid {
-            border-color: #28a745;
+            border-color: #52b33d;
             box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
             background-color: #f6fff8;
         }
@@ -59,17 +39,10 @@
             border-radius: 4px;
         }
 
-        button {
-            background-color: #00796b;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
         }
 
         button:hover {
-            background-color: #004d40;
+            background-color: #52b33d;
         }
 
         .popUp1, .popUp2, .popUp3 {
@@ -94,13 +67,13 @@
         }
     </style>
     <body>
-        <h1>Sign Up to donate to Team Trees!</h1>
+        <h1>Intyale Club Sign-up Sheet</h1>
         <div class = "box">
             <form method="post" action="submit" Id ="donationForm">
                 <label for ="studentID">Student ID:</label>
                 <input type="numeric" id="studentID" name="studentID" novalidate><br><br>
 
-                <label for ="fullName">Full Name:</label>
+                <label for ="fullName">Full Name (L,F,MI):</label>
                 <input type="text" id="fullName" name="fullName" novalidate><br><br>
 
                 <label for ="bday">Birthday:</label>
@@ -128,16 +101,16 @@
                 <input type="radio" id="external" name ="intExt" value="external">
                 <label for="external">External Student</label><br><br>
 
-                <label for="donationAmount">Donation Amount:</label>
-                <select id="donationAmount" name="donationAmount" novalidate>
-                    <option value="5"> ₱5 </option>
-                    <option value="10"> ₱10 </option>
-                    <option value="15"> ₱15 </option>
-                    <option value="20"> ₱20 </option>
-                    <option value="25"> ₱25 </option>
+                <label for="playexperience">Experience:</label>
+                <select id="playexperience" name="playexperience" novalidate>
+                    <option value="5"> None </option>
+                    <option value="10"> Very Little </option>
+                    <option value="15"> Newbie </option>
+                    <option value="20"> Intermediate </option>
+                    <option value="25"> Veteran </option>
                 </select><br><br>
 
-                <label for="textArea">Why do you want to donate?</label>
+                <label for="textArea">What is your reason to want to play D&D?</label>
                 <textarea id="textArea" name="textArea" rows="4" cols="67"></textarea><br><br>
 
                 <button type="submit" value="Submit">Submit</button> <br><br>
@@ -152,13 +125,13 @@
         </div>
 
         <div class="popUp2">
-            <span>Your form is incomplete, please fill in the required information.</span>
+            <span>Your form is incomplete.</span>
             <br><br>
             <button id="okBtn">Okay</button>
         </div>
 
         <div class="popUp3">
-            <span>Are you sure you want to reset this form?</span>
+            <span>Do you want to reset?</span>
             <button id="yesBtn2">Yes</button>
             <button id="noBtn2">No</button>
         </div>
@@ -174,11 +147,11 @@
             const phoneNum = document.getElementById("phoneNum");
             const grade = document.getElementById("grade");
             const studentType = document.getElementsByName("intExt");
-            const donationAmount = document.getElementById("donationAmount");
+            const playexperience = document.getElementById("playexperience");
             const textArea = document.getElementById("textArea");
 
 
-            const fields = document.querySelectorAll("#studentID, #fullName, #bday, #email, #phoneNum, #grade, #donationAmount");
+            const fields = document.querySelectorAll("#studentID, #fullName, #bday, #email, #phoneNum, #grade, #playexperience");
             let goReset = false;
 
             form.addEventListener("submit", function(event) {
@@ -186,7 +159,7 @@
                 
                  const studentTypeVal = [...studentType].some(radio => radio.checked);
 
-                if (!studentID.value || !fullName.value || !bday.value || !email.value || !phoneNum.value || !grade.value || !donationAmount.value) {
+                if (!studentID.value || !fullName.value || !bday.value || !email.value || !phoneNum.value || !grade.value || !playexperience.value) {
                     document.querySelector(".popUp2").classList.add("show");
                 } else {
                     document.querySelector(".popUp1").classList.add("show");
@@ -205,7 +178,7 @@
                     phoneNum.value = "";
                     grade.value = "";
                     intExt.value = "";
-                    donationAmount.value = "";
+                    playexperience.value = "";
                     textArea.value = "";
                 };
             });  
