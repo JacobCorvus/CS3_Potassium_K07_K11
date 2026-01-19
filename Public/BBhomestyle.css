@@ -713,12 +713,12 @@ h4 {
   }
 
   .container {
-    max-width: 95%;
+    width: 75%;
     padding: 10px;
   }
 
   .welcomebox {
-    padding: 12px;
+    width: 95%;
   }
 
   img {
@@ -791,7 +791,9 @@ h4 {
   }
 
   .container {
-    width: 95%;;
+    width: 95%;
+     ustify-content: center;
+    justify-self: center;
   }
 }
 
@@ -806,6 +808,8 @@ h4 {
 
   .container {
     width: 95%;
+    justify-content: center;
+    justify-self: center;
   }
 
   .gallery-overlay a {
