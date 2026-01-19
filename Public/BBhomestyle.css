@@ -66,7 +66,6 @@ h4 {
     border-style: solid;
     text-align: center;
     border-radius: 15px;
-
 }
 .charactergrid {
     border: #042c38;
@@ -146,6 +145,14 @@ h4 {
     background-color: #254369;
     color: #fff8db;
  }
+
+ .dropBtn.open .dropCon {
+    display: block;
+}
+
+.dropBtn img {
+    cursor: pointer;
+}
 
  .dropCon li{
     list-style: none;
@@ -681,4 +688,174 @@ h4 {
 
 .dialogHidden {
     display: none !important;
+}
+
+@media (max-width: 768px) {
+    body {
+    background-attachment: scroll;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    margin: 12px;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: 95%;
+    padding: 10px;
+  }
+
+  .welcomebox {
+    padding: 12px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .centered {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navLinks {
+    gap: 12px;
+  }
+
+  .navLinks li a {
+    font-size: 16px;
+    margin-right: 0;
+  }
+
+  .loogo img {
+    width: 80px;
+  }
+
+  .dropDown {
+    left: 10px;
+  }
+
+  .dropCon {
+    left: 0;
+    min-width: 180px;
+  }
+
+  .charcard {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .char-left, .char-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .char-portrait {
+    max-width: 80%;
+    margin: auto;
+  }
+
+  .char-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px;
+    overflow-x: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .characterstuff {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .welcomebox {
+    width: 80%;
+  }
+
+  .container {
+    width: 95%;;
+  }
+}
+
+@media (max-width: 600px) {
+  .characterstuff {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-overlay a {
+    font-size: 16px;
+  }
+
+  #form {
+    width: 90%;
+  }
+
+  #agentDialog p {
+    font-size: 18px;
+    padding: 20px;
+  }
+
+  .centered {
+    flex-direction: row;
+  }
+
+  .navLinks {
+    justify-content: row;
+    margin: 5px 0;
+  }
+
+  .loogo img {
+    width: 80px;
+  }
+
+  .container {
+    margin-top: 10px;
+  }
+
+  .welcomebox h1 {
+    font-size: 24px;
+  }
+
+  .welcomebox h4 {
+    font-size: 14px;
+  }
+
+  #form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .inputCon input {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #form button {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  #agentDialog p {
+    max-width: 90%;
+    font-size: 18px;
+    padding: 20px;
+  }
 }

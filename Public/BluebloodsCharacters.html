@@ -13,7 +13,7 @@
     <body>
         <nav class="navBar">
             <ul class ="dropDown">
-                <li class="dropBtn">
+                <li class="dropBtn" id="menuToggle">
                 <img src="assets/Menu.png">
                     <ul class="dropCon">
                         <li><a href ="AgAcc.html">Agents Account</a></li>
@@ -35,6 +35,20 @@
                     <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
             </div>
+            <script>
+                const menuToggle = document.getElementById("menuToggle");
+
+                if (menuToggle) {
+                    menuToggle.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        menuToggle.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function() {
+                    menuToggle.classList.remove("open");
+                });
+                }
+                </script>
         </nav>
        <div class="container">
         <div class="welcomebox">
@@ -55,7 +69,7 @@
             <div class="charactersection">
                 <div class="characterstuff">
                 <div class="ArtemisSallow">
-                    <img src="ARTEMISSALLOWIMAGE.webp">
+                    <img src="assets/ARTEMISSALLOWIMAGE.webp">
                     <h3><a href="ArtemisSallow.html"> Artemis Sallow </a></h3>
                 </div>
                 <div class="QiyaraZhou">
@@ -71,7 +85,7 @@
                     <h3><a href="a"></a> Yaban Franx </a></h3>
                 </div>
                 <div class="ApolloSallow">
-                    <img src="APOLLOSALLOWIMAGE.webp">
+                    <img src="assets/APOLLOSALLOWIMAGE.webp">
                     <h3><a href="ApolloSallow.html"> Apollo Sallow </a></h3>
                 </div>
                 <div class="Polaris">

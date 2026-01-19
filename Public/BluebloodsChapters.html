@@ -10,9 +10,9 @@
         <link rel="icon" href="assets/headlogo.png">
     </head>
     <body>
-        <nav class="navBar">
+         <nav class="navBar">
             <ul class ="dropDown">
-                <li class="dropBtn">
+                <li class="dropBtn" id="menuToggle">
                 <img src="assets/Menu.png">
                     <ul class="dropCon">
                         <li><a href ="AgAcc.html">Agents Account</a></li>
@@ -34,6 +34,20 @@
                     <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
             </div>
+            <script>
+                const menuToggle = document.getElementById("menuToggle");
+
+                if (menuToggle) {
+                    menuToggle.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        menuToggle.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function() {
+                    menuToggle.classList.remove("open");
+                });
+                }
+                </script>
         </nav>
         <div class="container">
              <h1> 
