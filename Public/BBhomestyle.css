@@ -819,11 +819,15 @@ h4 {
 
   .navLinks {
     justify-content: row;
-    margin: 5px 0;
+    margin: 2px 0;
+  }
+
+  .navLinks li a {
+    font-size: 14px;
   }
 
   .loogo img {
-    width: 80px;
+    width: 70px;
   }
 
   .container {
