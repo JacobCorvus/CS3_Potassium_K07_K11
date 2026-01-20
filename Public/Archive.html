@@ -35,8 +35,78 @@
                 </ul>
             </div>
         </nav>
-    </body>
+
+            <div class="container">
+                <div class="welcomebox">
+
+                    <form onsubmit="return false;">
+                        <div class="searchbar">
+                            <span class="material-symbols-outlined"> search </span>
+                                <input type="search" id="input-box" autocomplete="off">
+                            </div>
+
+                            <
+                        </form>
+
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    <a href ="a">
+                        <img src = "assets/Archive.PNG" class="folder">
+                    </a>
+                    
+                </div>
+            </div>
+    </div>
+
     <script>
-        
+        const files = [
+            {name: "Artemis Sallow", link: "ArtemisSallow.html"},
+            {name: "Apollo Sallow", link: "ApolloSallow.html"},
+            {name: "Polaris", link: "Polaris.html"},
+            {name: "Qiyara Zhou", link: "QiyaraZhou.html"},
+            {name: "Chiyo Fukiwara", link: "ChiyoFukiwara.html"},
+            {name: "Kairus", link: "Kairus.html"},
+            {name: "Elian", link: "Elian.html"},
+            {name: "Yaban Franx", link: "YabanFranx.html"},
+        ];
+
+        const inputBox = document.getElementById("input-box");
+
+        inputBox.addEventListener("keyup", function(e) {
+            if (e.key === "Enter") {
+                const query = inputBox.value.trim().toLowerCase();
+                if (!query) return;
+
+                const result = files.find(c => c.name.toLowerCase() === query);
+
+                if (result) {
+                    window.location.href = result.link;
+                } else {
+                    alert("Unknown file not found");
+                }
+            }
+        });
+
+
     </script>
+    </body>
 </html>

@@ -209,12 +209,6 @@ h4 {
     font-size: 22px;
  }
 
-@media screen and (max-width:400px) {
-    .container { 
-        flex: 100%;
-    }
-}
-
 #warning {
     position: fixed;
     display: none;
@@ -690,7 +684,7 @@ h4 {
     display: none !important;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     body {
     background-attachment: scroll;
   }
@@ -781,7 +775,7 @@ h4 {
   }
 }
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .characterstuff {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -792,24 +786,18 @@ h4 {
 
   .container {
     width: 95%;
-     ustify-content: center;
+    justify-content: center;
     justify-self: center;
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .characterstuff {
     grid-template-columns: 1fr;
   }
 
   .welcomebox {
     width: 80%;
-    justify-self: center;
-  }
-
-  .container {
-    width: 95%;
-    justify-content: center;
     justify-self: center;
   }
 
@@ -844,7 +832,8 @@ h4 {
   }
 
   .container {
-    margin-top: 10px;
+    flex: 100%;
+    align-items: center;
   }
 
   .welcomebox h1 {
