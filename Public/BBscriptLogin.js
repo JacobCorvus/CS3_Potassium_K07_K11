@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dialogText = document.getElementById("dialogText");
 
     const users = JSON.parse(localStorage.getItem("users")) || {};
-
     const showDialog = (text) => {
         dialogText.textContent = text;
         dialog.classList.remove("dialogHidden");
@@ -47,7 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 users[emailValue] = {
                     username: usernameValue,
-                    password: passwordValue
+                    password: passwordValue,
+                    passcode: generatePasscode()
                 };
 
                 localStorage.setItem("users", JSON.stringify(users));
