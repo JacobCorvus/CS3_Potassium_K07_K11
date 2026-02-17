@@ -337,8 +337,13 @@ h4 {
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;      
     padding: 20px;
+    
 }
 
+.characterstuff img{
+    width: 100%;
+    height: auto;
+}
 .characterstuff > div {
     background: #254369;         
     border: 2px solid #042c38;    
