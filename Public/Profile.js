@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById("password");
     const profileInput = document.getElementById("profile");
     const saveBtn = document.getElementById("saveBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
     const missionsList = document.getElementById("missionsList");
+    const profileImage = document.getElementById("profileImage");
+    const imageUpload = document.getElementById("imageUpload");
 
     const users = JSON.parse(localStorage.getItem("users")) || {};
     const loggedInUserEmail = sessionStorage.getItem("loggedInUser");
@@ -15,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     emailInput.value = loggedInUserEmail;
     passwordInput.value = currentUser.password || "";
     profileInput.value = currentUser.profile || "";
+    profileImage.src = currentUser.profileImage || "default-profile.png";
 
     if (!currentUser.missions) {
         currentUser.missions = [
@@ -57,5 +61,23 @@ document.addEventListener("DOMContentLoaded", () => {
     saveBtn.addEventListener("click", () => {
         saveUserData();
         alert("Profile updated successfully!");
+    });
+
+    logoutBtn.addEventListener("click", () => {
+        sessionStorage.removeItem("loggedInUser");
+        window.location.href = "Login.html";
+    });
+
+    imageUpload.addEventListener("change", () => {
+        const file = imageUpload.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
+                currentUser.profileImage = e.target.result;
+                saveUserData();
+            };
+            reader.readAsDataURL(file);
+        }
     });
 });

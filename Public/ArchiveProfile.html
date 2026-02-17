@@ -11,29 +11,46 @@
         <script defer src="Profile.js"></script>
     </head>
     <body>
-        <div class="profile-container">
-        <h2>Agent Profile</h2>
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username">
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" disabled>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password">
-        </div>
-        <div class="form-group">
-            <label for="profile">Profile Description:</label>
-            <textarea id="profile" rows="4" placeholder="Write your agent profile..."></textarea>
-        </div>
-        <button id="saveBtn">Save Changes</button>
+        <div class="container">
+        <div id="profileContainer">
 
-        <div class="missions">
-            <h3>Mission Progress</h3>
-            <div id="missionsList"></div>
+            <div class="left">
+                <img id="profileImage" src="assets/profile.png" alt="Profile Image">
+                <label id="uploadBtn" for="imageUpload">Change Profile Image</label>
+                <input type="file" id="imageUpload" accept="image/*">
+
+                <div class="info-section">
+                    <h3>Basic Info</h3>
+                    <p><strong>Agent Name:</strong> <span id="usernameText"></span></p>
+                    <p><strong>Email:</strong> <span id="emailText"></span></p>
+                </div>
+
+                 <div class="missions-section">
+                    <h3>Mission Progress</h3>
+                    <div id="missionsList"></div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="form-section">
+                    <h3>Edit Profile</h3>
+                    <div class="form-group">
+                        <label for="username">Agent Name:</label>
+                        <input type="text" id="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile">Profile Description:</label>
+                        <textarea id="profile" rows="5" placeholder="Write your agent profile..."></textarea>
+                    </div>
+                    <button id="saveBtn">Save Changes</button>
+                    <button id="logoutBtn">Log Out</button>
+                </div>
+
+            </div>
         </div>
     </div>
     </body>

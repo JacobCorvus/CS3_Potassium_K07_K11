@@ -97,3 +97,116 @@ h4 {
     color: #333;
     text-align:center;
 }
+
+label{
+    display: grid;
+    margin-left: 10px;
+    grid-template-columns: repeat(3, 150px);
+    grid-auto-rows: 220px;
+    gap: 5px;
+    color: whitesmoke;
+}
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+#profileContainer {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-gap: 30px;
+    background-color: #1c2e42;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.left img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+#uploadBtn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#imageUpload {
+    display: none;
+}
+
+.info-section, .mission-section {
+    background-color: #142033;
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.info-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section, .missions-section, .missionsList{
+    background-color: #142033;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.form-section h3, .missions-section h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#saveBtn {
+    color: #fff;
+}
+
+#logoutBtn {
+    color: #fff;
+}
