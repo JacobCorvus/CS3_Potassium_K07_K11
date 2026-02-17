@@ -1,0 +1,99 @@
+body{
+    background-color:black;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Coromant Garamond', serif;
+    color: whitesmoke;
+    padding: 7px;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+h2{
+    text-align: left;
+    font-family: 'Coromant Garamond', serif;
+    color: whitesmoke;
+    background-color: rgba(16, 15, 15, 0.514);
+    padding: 20px;
+    margin: 0;
+}
+
+p {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Coromant Garamond', 'Courier New';
+    margin: 20px;
+    text-align:justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.line {
+    width: 100%;
+    border-top: 2px solid whitesmoke;
+    margin: 0;
+}
+
+h4 {
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Coromant Garamond', 'Courier New';
+    margin: 5px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    border-radius: 15px;
+    border-style: solid;
+    background-color:  #090b0d;
+    padding-top: 0;
+    margin-top: 20px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(7, 170px);
+    grid-auto-rows: 220px;
+    gap: 5px;
+    padding: 15px;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+.grid-item img {
+    width: 90px;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.grid-item img:hover {
+    background-image: url(assets/folderOpen.png);
+    background-size: cover;
+    transition: 3s;
+}
+
+.grid-item p:hover {
+    color:whitesmoke;
+    transition: 0.6s;
+}
+
+.grid-item p {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #333;
+    text-align:center;
+}
