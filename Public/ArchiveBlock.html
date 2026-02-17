@@ -8,27 +8,16 @@
         <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
         <link rel="stylesheet" href="BBhomestyle.css">
         <link rel="icon" href="assets/headlogo.png">
+        <script defer src="BBscriptWall.js"></script>
     </head>
     <body>
-
-        <script>
-            const access = sessionStorage.getItem("archiveAccess");
-            if (access !== "granted") {
-                window.location.href = "ArchiveAccess.html";
-            }
-
-            if (localStorage.getItem("archiveAccess") !== "granted") {
-                window.location.href = "PasscodePage.html";
-            }
-
-        </script>
 
         <nav class="navBar">
             <ul class ="dropDown">
                 <li class="dropBtn" id="menuToggle">
                 <img src="assets/Menu.png">
                     <ul class="dropCon">
-                        <li><a href="a">Archive</a></li>
+                        <li><a href="ArchiveBlock.html">Archive</a></li>
                     </ul>
                 </li>
             </ul>
@@ -45,6 +34,7 @@
                     <li><a href ="BluebloodsChapters.html">Story</a></li>
                 </ul>
             </div>
+
             <script>
                 const menuToggle = document.getElementById("menuToggle");
 
@@ -61,27 +51,38 @@
                 </script>
         </nav>
         <div class="container">
+            <div class="welcomebox">
             <div class="line"></div>
-            <h1>Passcode Required</h1>
-            <h4>Access blocked until passcode attained</h4>
+            <h1>Archive Clearance Required</h1>
+            <h4 id="statusMessage"></h4>
             <div class="line"></div>
+            <br>
 
-                <form id="passForm">
-                    <div class="inputCon">
-                    <label for="passcodeInput">Agent Passcode</label>
-                    <input id="passcodeInput" type="text" required>
+            <form id="archiveLoginForm">
+                <div class="inputCon">
+                    <label for="archiveUsername">Agent Username</label>
+                    <input id="archiveUsername" type="text" required>
                     <div class="error"></div>
+                </div>
+                <br>
 
-                    <input type="text" id="agentName" placeholder="Agent Username" required>
-                    <input type="password" id="passcode" placeholder="Passcode" required>
-                    <button type="submit">Enter Archive</button>
-                    <p id="errorMessage"></p>
-            </div>
+                <div class="inputCon">
+                    <label for="archivePassword">Archive Passcode</label>
+                    <input id="archivePassword" type="password" required>
+                    <div class="error"></div>
+                </div>
+                <br>
+                <button type="submit">Enter Archive</button>
             </form>
+            <br>
+
+            <div class ="line"></div>
+
+            </div>
+            <div class="welcomebox">
+                <h4>If agent not found login first: <a href="AgAcc.html">Login Here</a></h4>
+            </div>
         </div>
-        </div>
-        window.addEventListener("beforeunload", () => {
-        sessionStorage.removeItem("archiveAccess");
-        });
+
     </body>
 </html>

@@ -1,55 +1,41 @@
-document.getElementById("archiveLogin").addEventListener("submit", function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
 
-    const agentName = document.getElementById("agentName").value.trim();
-    const passcode = document.getElementById("passcode").value.trim();
-    const errorMessage = document.getElementById("errorMessage");
-
-    // Retrieve stored agents from localStorage
-    const storedAgents = JSON.parse(localStorage.getItem("agents")) || [];
-
-    // Find matching agent
-    const validAgent = storedAgents.find(agent => 
-        agent.username === agentName && agent.passcode === passcode
-    );
-
-    if (validAgent) {
-        // Optional: Save session flag
-        localStorage.setItem("archiveAccess", "granted");
-
-        // Redirect to Archive
-        window.location.href = "BluebloodsArchive.html";
-    } else {
-        errorMessage.textContent = "Invalid agent credentials.";
-        errorMessage.style.color = "red";
-    }
-
-    const loggedInUser = sessionStorage.getItem("loggedInUser");
-
-    // If not logged in → send to login page
-    if (!loggedInUser) {
-        window.location.href = "AgentLogin.html"; // your login page name
-        return;
-    }
-
-    const users = JSON.parse(localStorage.getItem("users")) || {};
-    const currentUser = users[loggedInUser];
-
-    const form = document.getElementById("passcodeForm");
-    const passcodeInput = document.getElementById("passcodeInput");
+    const form = document.getElementById("archiveLoginForm");
+    const usernameInput = document.getElementById("archiveUsername");
+    const passwordInput = document.getElementById("archivePassword");
+    const accPassword = "05011006";
 
     form.addEventListener("submit", e => {
         e.preventDefault();
 
-        const enteredPasscode = passcodeInput.value.trim();
+        const enteredUsername = usernameInput.value.trim();
+        const enteredPassword = passwordInput.value.trim();
 
-        if (enteredPasscode === currentUser.passcode) {
-            sessionStorage.setItem("archiveAccess", "granted");
-            window.location.href = "BluebloodsArchive.html";
+        const users = JSON.parse(localStorage.getItem("users")) || {};
+
+        let validUser = null;
+
+        for (let email in users) {
+            if (
+                users[email].username === enteredUsername 
+            ) {
+                validUser = users[email];
+                break;
+            }
+        }
+
+        if (validUser) {
+            if (enteredPassword === accPassword) {
+                sessionStorage.setItem("archiveAccess", "granted");
+                window.location.href = "Archive.html";
+            } else {
+                passwordInput.parentElement.querySelector(".error").innerText =
+                    "Password must match the required password.";
+            }
         } else {
-            const inputCon = passcodeInput.parentElement;
-            inputCon.querySelector(".error").innerText = "Invalid agent passcode.";
-            inputCon.classList.add("error");
+            passwordInput.parentElement.querySelector(".error").innerText =
+                "Invalid username or password.";
         }
     });
+
 });

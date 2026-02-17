@@ -162,6 +162,7 @@ h4 {
     padding: 10px 16px;
     color: #fdd44e;
     display: block;
+    text-decoration: none;
  }
 
  .dropbtn img {
@@ -682,6 +683,11 @@ h4 {
 
 .dialogHidden {
     display: none !important;
+}
+
+h4 a {
+    color: #ff9417;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {

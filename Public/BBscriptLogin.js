@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = document.getElementById("username");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    const password2 = document.getElementById("password2");
 
     const dialog = document.getElementById("agentDialog");
     const dialogText = document.getElementById("dialogText");
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (users[emailValue]) {
             if (users[emailValue].password === passwordValue) {
                 sessionStorage.setItem("loggedInUser", emailValue);
-                window.location.href = "AccDetails.html";
+                window.location.href = "ArchiveBlock.html";
             } else {
                 setError(password, "Incorrect access code");
             }
@@ -47,20 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 users[emailValue] = {
                     username: usernameValue,
                     password: passwordValue,
-                    passcode: generatePasscode()
                 };
 
                 localStorage.setItem("users", JSON.stringify(users));
                 sessionStorage.setItem("loggedInUser", emailValue);
 
-                showDialog(`Access granted. Welcome, Agent ${usernameValue}.`);
+                showDialog(`Access granted. Welcome, Agent ${usernameValue}. Archive passcode is: 05011006`);
 
                 setTimeout(() => {
-                    window.location.href = "AccDetails.html";
-                }, 1800);
+                    window.location.href = "ArchiveBlock.html";
+                }, 6000);
 
-            }, 1200);
-        }, 1500);
+            }, 1600);
+        }, 1300);
     });
 
     const setError = (element, message) => {
@@ -84,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const usernameValue = username.value.trim();
         const emailValue = email.value.trim();
         const passwordValue = password.value.trim();
-        const password2Value = password2.value.trim();
 
         let valid = true;
 
@@ -105,11 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
             setError(password, "Password must be at least 8 characters");
             valid = false;
         } else setSuccess(password);
-
-        if (password2Value !== passwordValue) {
-            setError(password2, "Passwords do not match");
-            valid = false;
-        } else setSuccess(password2);
 
         return { valid, usernameValue, emailValue, passwordValue };
     };
