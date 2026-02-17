@@ -8,10 +8,22 @@
         <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
         <link rel="stylesheet" href="BBhomestyle.css">
         <link rel="icon" href="assets/headlogo.png">
-        <script defer src="BBscriptLogin.js"></script>
     </head>
     <body>
-         <nav class="navBar">
+
+        <script>
+            const access = sessionStorage.getItem("archiveAccess");
+            if (access !== "granted") {
+                window.location.href = "ArchiveAccess.html";
+            }
+
+            if (localStorage.getItem("archiveAccess") !== "granted") {
+                window.location.href = "PasscodePage.html";
+            }
+
+        </script>
+
+        <nav class="navBar">
             <ul class ="dropDown">
                 <li class="dropBtn" id="menuToggle">
                 <img src="assets/Menu.png">
@@ -49,42 +61,27 @@
                 </script>
         </nav>
         <div class="container">
-        <div class="welcomebox">
             <div class="line"></div>
-            <h1> Agent's Account Login</h1>
-            <h4> Access your missions and profile here. </h4>
+            <h1>Passcode Required</h1>
+            <h4>Access blocked until passcode attained</h4>
             <div class="line"></div>
-        <div class="con">
-            <form id="form" novalidate autocomplete="off">
-                <div class="inputCon">
-                    <label for="username">Username:</label>
-                    <input id="username" name="username" type="text" required>
+
+                <form id="passForm">
+                    <div class="inputCon">
+                    <label for="passcodeInput">Agent Passcode</label>
+                    <input id="passcodeInput" type="text" required>
                     <div class="error"></div>
-                </div>
-                <div class="inputCon">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="text" placeholder="Put in your own email" autocomplete="off">
-                    <div class="error"></div>
-                </div>
-                <div class="inputCon">
-                    <label for="password">Password</label>
-                    <input id="password"name="password"type="password" placeholder="Any password works too" autocomplete="off">
-                    <div class="error"></div>
-                </div>
-                <div class="inputCon">
-                    <label for="password2">Confirm Password</label>
-                    <input id="password2"name="password2"type="password" placeholder="You will be let in" autocomplete="off">
-                    <div class="error"></div> 
-                </div>
-                <button type="submit">Verify</button>
+
+                    <input type="text" id="agentName" placeholder="Agent Username" required>
+                    <input type="password" id="passcode" placeholder="Passcode" required>
+                    <button type="submit">Enter Archive</button>
+                    <p id="errorMessage"></p>
+            </div>
             </form>
         </div>
         </div>
-        </div>
-
-        <div id="agentDialog" class="dialogHidden">
-            <p id="dialogText"></p>
-        </div>
-
+        window.addEventListener("beforeunload", () => {
+        sessionStorage.removeItem("archiveAccess");
+        });
     </body>
-    </html>
+</html>
