@@ -4,13 +4,17 @@ body {
     background-attachment: fixed;
     background-blend-mode: multiply;
     background-color: #0c0357;
-    margin: 0;
-    padding: 0;
     margin-bottom: 40px;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
-    font-size: 40px;
+    font-size: clamp(26px, 4vw, 42px);
     text-align: center;
     font-family: 'Coromant Garamond', serif;
     color: #ff9417;
@@ -44,7 +48,7 @@ h4 {
 }
 
 .container {
-    max-width: 870px;
+    width: min(75%, 1100px);
     margin: auto;
     border-color: #010d1f;
     border-radius: 15px;
@@ -58,6 +62,7 @@ h4 {
     justify-content: center;
     justify-self: center;
 }
+
 .welcomebox {
     border-color: #1c2e42;
     background-color: #1c2e42;
@@ -67,6 +72,7 @@ h4 {
     text-align: center;
     border-radius: 15px;
 }
+
 .charactergrid {
     border: #042c38;
     background:#1c3352;
@@ -88,20 +94,27 @@ h4 {
     color:darkorange;
     text-decoration: italic;
     margin: 20px;
-
 }
+
 .welcomebox h2 { 
     text-align: center;
     margin:5px;
     color: #ff9417;
     font-family: 'Coromant Garamond', 'Courier New';
 }
+
 .container img {
     width: 95%;
     display: block;
     border-radius: 15px;
     align-self: center;
  }
+
+.main-nav {
+    width: 100%;
+    padding: 20px 0;
+}
+
  .navBar {
     background: rgba(63, 106, 199, 0.37);
     border-bottom: 1px solid rgba(63, 106, 199, 0.3);
@@ -111,14 +124,19 @@ h4 {
     display: flex;
     position: relative;
     align-items: center;
+    justify-content: center;
  }
 
- .centered{
-    display: flex;
+ .centered {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
- }
+    gap: 60px;
+}
 
  .dropDown {
     position: absolute;
@@ -174,7 +192,12 @@ h4 {
     transform: scale(1.1);
 }
 
- .loogo img{
+.loogo {
+    display: flex;
+    justify-content: center;
+}
+
+.loogo img{
     display: flex;
     height: auto;
     width: 100px;
@@ -182,8 +205,8 @@ h4 {
     margin: 7px;
  }
 
- .loogo img:hover{
-    transform: scale(1.1);
+.loogo img:hover{
+    transform: scale(1.05);
     transition: 0.5s;
     color: #fff7db;
     mix-blend-mode: lighten;
@@ -193,6 +216,7 @@ h4 {
     list-style: none;
     display: flex;
     gap: 20px;
+    justify-content: center;
  }
 
  .navLinks li a {
@@ -207,7 +231,7 @@ h4 {
  .navLinks li a:hover {
     color:#fff8db;
     text-shadow: 0 0 10px #fff8db;
-    font-size: 22px;
+    font-size: 110%;
  }
 
 #warning {
@@ -227,16 +251,20 @@ h4 {
     text-align: center;
 }
 
-.message h2, p{
+.message h2, .message p{
     color: white;
 
 }
 
-.closeWarn {
+#closeWarn {
     margin-top: 20px;
     border: none;
     padding: 8px;
-    align-items: center;
+    color: white;
+    background-color: #333;
+    text-align: center;
+    align-content: center;
+    width: 70%;
 }
 
 .FirstChapter {
@@ -394,7 +422,14 @@ h4 {
 
 .gallery-img {
     position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
     overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.4s ease;
 }
 
 .gallery-overlay {
@@ -423,7 +458,7 @@ h4 {
 #index-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(200px, 1fr);
+    grid-auto-rows: 1fr;
     grid-gap: 10px;
     grid-template-areas: 
     "img1 img3 img4 img6"
@@ -431,7 +466,6 @@ h4 {
 }
 
 #index-gallery .gallery-img {
-    aspect-ratio: 1 / 1;
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -455,7 +489,6 @@ h4 {
     grid-area: img3;
     background-image: url("assets/img3.jpg");
     aspect-ratio: auto;
-    grid-row: span 2;
 }
 
 #index-gallery .img4 {
@@ -471,7 +504,6 @@ h4 {
 #index-gallery .img6 {
     grid-area: img6;
     background-image: url("assets/img6.jpg");
-    grid-row: span 2;
     aspect-ratio: auto;
 }
 
@@ -517,6 +549,8 @@ h4 {
 
 .img-popup {
     inset: 0;
+    z-index: 9999;
+    padding: 20px;
     position: fixed;
     display: flex; 
     justify-content: center;
@@ -526,9 +560,7 @@ h4 {
 
 .img-popup img {
     max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 10px;
 }
@@ -546,7 +578,7 @@ h4 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 5vw;
+    font-size: clamp(28px, 4vw, 50px);
     background: transparent;
     border: none;
     color: white;
@@ -555,23 +587,11 @@ h4 {
 }
 
 #prev-btn { 
-    left: 2vw;
+    left: 10px;
 }
 
 #next-btn { 
-    right: 2vw;
-}
-
-@media screen and (max-width: 1024px) {
-    #index-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 600px) {
-    #index-gallery {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-    }
+    right: 10px;
 }
 
 .searchbar {
@@ -650,7 +670,7 @@ h4 {
     font-weight: bold;
 }
 
-#form button {
+#form button, button{
     padding: 10px;
     margin-top: 6vh;
     width: 80%;
@@ -695,8 +715,8 @@ h4 a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 768px) {
-    body {
+@media (max-width: 768px) {
+  body {
     background-attachment: scroll;
   }
 
@@ -732,12 +752,14 @@ h4 a {
   }
 
   .centered {
-    flex-wrap: wrap;
-    justify-content: center;
+      grid-template-rows: 1fr;
+      gap: 20px;
+      text-align: center;
   }
 
   .navLinks {
     gap: 12px;
+    justify-content: center;
   }
 
   .navLinks li a {
@@ -784,15 +806,65 @@ h4 a {
     overflow-x: auto;
     display: block;
   }
+
+  .navBar {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+  .navLinks {
+    align-items: center;
+  }
+
+  .loogo img {
+    width: 75px;
+  }
+
+  #index-gallery {
+    grid-template-columns: 250px;
+    grid-template-areas:
+      "img1"
+      "img2"
+      "img3"
+      "img4"
+      "img5"
+      "img6";
+  }
+
+  .img3, .img6 {
+    grid-row: auto;
+  }
+
+  #secondarycontainer {
+    align-items: center;
+    align-content: center;
+  }
+
+  .marsh img, .sec img, .struct img {
+    width: 85%;
+    margin: auto;
+    align-content: center;
+  }
+
+  #Gallery img, #world img, #characters img{
+    width: 85%;
+    margin: auto;
+    align-content: center;
+    align-items: center;
+  }
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
+
   .characterstuff {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .welcomebox {
-    width: 80%;
+    width: 95%;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
   }
 
   .container {
@@ -800,15 +872,52 @@ h4 a {
     justify-content: center;
     justify-self: center;
   }
+
+  .centered {
+      gap: 15px;
+  }
+
+  .navLinks a {
+      font-size: 16px;
+  }
+
+  .charactergrid {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .marsh img, .sec img, .struct img{
+    height: 90%;
+    margin: auto;
+    align-content: center;
+  }
+
+  #index-gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+          "img1 img2"
+          "img3 img3"
+          "img4 img5"
+          "img6 img6";
+  }
+
+  .img3, .img6{
+    grid-row: auto;
+  }
 }
 
 @media screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+    width: 90%;
+  }
+  
   .characterstuff {
     grid-template-columns: 1fr;
   }
 
   .welcomebox {
-    width: 80%;
+    width: 90%;
     justify-self: center;
   }
 
@@ -845,6 +954,7 @@ h4 a {
   .container {
     flex: 100%;
     align-items: center;
+    width: 90%;
   }
 
   .welcomebox h1 {
@@ -874,5 +984,60 @@ h4 a {
     max-width: 90%;
     font-size: 18px;
     padding: 20px;
+  }
+
+  #index-gallery {
+    grid-template-columns: 250px;
+    grid-template-areas:
+      "img1"
+      "img2"
+      "img3"
+      "img4"
+      "img5"
+      "img6";
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .container h1 {
+      font-size: 24px;
+      width: 90%;
+  }
+
+  .container h2 {
+      font-size: 20px;
+      width: 90%;
+  }
+
+  .container {
+      width: 95%;
+      justify-content: center;
+      justify-self: center;
+  }
+
+  .welcomebox {
+      width: 90%;
+      justify-self: center;
+  }
+
+  .searchbar {
+      width: 95%;
+  }
+
+  #index-gallery {
+    grid-template-columns: 250px;
+    grid-template-areas:
+      "img1"
+      "img2"
+      "img3"
+      "img4"
+      "img5"
+      "img6";
+  }
+
+  .img3, .img6 {
+    grid-row: auto;
   }
 }
