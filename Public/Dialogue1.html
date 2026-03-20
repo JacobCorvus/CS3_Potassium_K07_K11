@@ -10,16 +10,29 @@
         <link rel="icon" href="assets/headlogo.png">
     </head>
     <body>
-        <div class="container">
-            <div class = "pContainer">
-                <div class="progress"></div>
-            </div>
+        <div class="layout">
+            <div class="container">
+                <div class = "pContainer">
+                    <div class="progress"></div>
+                </div>
 
-            <div class="dialogue">
-                <p class="words"></p>
-                
-                <button class="butt1"> Option 1</button>
-                <button class="butt2"> Option 2</button>
+                <div class="dialogue">
+                    <p class="words"></p>
+                    
+                    <button class="butt1"> Option 1</button>
+                    <button class="butt2"> Option 2</button>
+                </div>
+            </div>
+            <div class="profile">
+                <h2> Suspect Profile </h2>
+
+                <img src="assets/profile.png" class="susImg">
+
+                <p>Name: Unknown</p>
+                <p>Age: Unknown</p>
+                <p>Occupation: Smuggler</p>
+                <p>Appearance: Red head, dressed like a he came from a gang</p>
+                <p>Description: Arrogant kid, annoying </p>
             </div>
         </div>
     </body>
@@ -52,17 +65,17 @@
                 option1: {
                     text: "Really now? Then where were you last night?",
                     next: "threat2",
-                    effect: 25
+                    effect: 10
                 },
                 option2: {
                     text: "Nothing? Doing nothing by the border last night too? ",
                     next: "start",
-                    effect: -10
+                    effect: 10
                 }
             },
 
             persuade1: {
-                text: "Suspect: Alright, alright. What do you want? Cause i have nothing on me.",
+                text: "Suspect: Alright, alright. What do you want? Cause I have nothing on me.",
                 option1: {
                     text: "I know you were there. Just tell me what you were doing.",
                     next: "threat2",
@@ -80,7 +93,7 @@
                 option1: {
                     text: "I didnt ask anything about the border.",
                     next: "threat3",
-                    effect: 30
+                    effect: 25
                 },
                 option2: {
                     text: "What are you talking about?",
@@ -99,7 +112,7 @@
                 option2: {
                     text: "So youre thinking about something not important and nervous because of it. Right...",
                     next: "truth",
-                    effect: 5
+                    effect: 25
                 }
             },
 

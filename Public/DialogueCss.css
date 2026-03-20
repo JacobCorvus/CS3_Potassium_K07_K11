@@ -15,16 +15,55 @@ h1 {
     border-radius: 15px;
 }
 
-.container{
+.layout {
+    display: flex;
+    margin: auto;
     width: 95%;
+    border-radius: 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.container{
+    width: 65%;
     margin: auto;
     border-radius: 15px;
-    border-style: dashed;
+    border: 3px dashed whitesmoke;
+    padding: 10px;
+    height: 200px auto;
+    align-items: center;
+}
+
+.profile {
+    width: 30%;
+    background-color: rgb(28, 34, 70);
+    color: whitesmoke;
+    border-radius: 15px;
+    object-fit: cover;
+    padding: 15px;
+    margin: 20px;
+    box-shadow: 0 0 10px navy;
+}
+
+.profile h2 {
+    text-align: center;
+    padding: 5px;
+    border: 3px solid whitesmoke
+}
+
+.profile p{
+    margin: 8px;
+}
+
+.susImg{
+    width: 30px;
+    border-radius: 15px;
+    margin: 10px 0;
 }
 
 .pContainer{
-    margin-top: 20px;
-    width: 100%;
+    margin: 20px auto;
+    width: 90%;
     height: 20px;
     background-color: rgb(28, 34, 70);
     border-radius: 15px;
