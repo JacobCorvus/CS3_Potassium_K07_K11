@@ -3,6 +3,12 @@ body{
     margin: 0;
     padding: 0;
     margin-bottom: 40px;
+    animation: fadeInPage 1.5s forwards;
+}
+
+@keyframes fadeInPage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 h1 {
@@ -35,6 +41,8 @@ h1 {
 }
 
 .profile {
+    display: flex;
+    flex-direction: column;
     width: 30%;
     background-color: rgb(28, 34, 70);
     color: whitesmoke;
@@ -43,6 +51,7 @@ h1 {
     padding: 15px;
     margin: 20px;
     box-shadow: 0 0 10px navy;
+    justify-content: center;
 }
 
 .profile h2 {
@@ -56,9 +65,10 @@ h1 {
 }
 
 .susImg{
-    width: 30px;
-    border-radius: 15px;
+    width: 85%;
+    border-radius: 13px;
     margin: 10px 0;
+    margin-left: 10%
 }
 
 .pContainer{
