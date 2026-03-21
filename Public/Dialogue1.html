@@ -175,7 +175,6 @@
 
             end: {
                 text: "Suspect: Yeah, well. I guess I should be careful about who I tell about it. Thanks for not arresting me.",
-                next: href/"ArchiveBlock.html",
             }
         };
 
@@ -202,6 +201,16 @@
                 butt2.textContent = scene.option2.text;
             } else {
                 butt2.style.display = "none";
+            }
+
+            if(current === "end"){
+                setTimeout(() => {
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = "Archive.html";
+                    }, 1000);
+                }, 1000);
             }
         }
 

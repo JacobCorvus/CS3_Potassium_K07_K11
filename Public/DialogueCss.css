@@ -11,6 +11,15 @@ body{
     100% { opacity: 1; }
 }
 
+@keyframes fadeOutPage {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.fade-out {
+    animation: fadeOutPage 1s forwards
+}
+
 h1 {
     font-size: 40px;
     text-align: center;

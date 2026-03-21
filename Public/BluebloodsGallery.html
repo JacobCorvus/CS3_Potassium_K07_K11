@@ -83,19 +83,18 @@
         </section>
         </div>
 
-        <div id="img-popup" class="img-popup" style="display:none;">
+        <div id = "img-popup" class="imgPopup">
             <img src="" alt="popup">
-            <button id="prev-btn" class="popup-nav">&#10094;</button>
-            <button id="next-btn" class="popup-nav">&#10095;</button>
+            <button id="prevBtn" class="popupNav">&#10094;</button>
+            <button id="nextBtn" class="popupNav">&#10095;</button>
         </div>
 
         <script>
             const galleryImages = document.querySelectorAll(".gallery-img");
             const popup = document.getElementById("img-popup");
             const popupImg = popup.querySelector("img");
-            const closeBtn = document.getElementById("popup-close");
-            const prevBtn = document.getElementById("prev-btn");
-            const nextBtn = document.getElementById("next-btn");
+            const prevBtn = document.getElementById("prevBtn");
+            const nextBtn = document.getElementById("nextBtn");
 
             let currentIndex = 0;
 
@@ -111,7 +110,8 @@
             }
 
             galleryImages.forEach((img, index) => {
-                img.addEventListener("click", () => {
+                img.addEventListener("click", (e) => {
+                    e.preventDefault();
                     openPopup(index);
                 });
             });

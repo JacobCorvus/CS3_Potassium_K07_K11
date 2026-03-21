@@ -371,6 +371,8 @@ h4 {
 .characterstuff img{
     width: 100%;
     height: auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
 .characterstuff > div {
     background: #254369;         
@@ -389,9 +391,11 @@ h4 {
     font-size: 22px;
     letter-spacing: 2px;
     padding: 10px;
-    width: 94%;
+    width: 100%;
     margin: 0;
-    border-radius: 15px
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .characterstuff a {
@@ -515,39 +519,11 @@ h4 {
     grid-area: gallery-h2;
 }
 
-.img-popup {
-    inset: 0;
-    position: fixed;
-    background: rgba(0,0,0,0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-.img-popup img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.popup-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-.gallery-img {
-    transition: transform 0.4s ease;
-}
-
 .gallery-img:hover {
     transform: scale(1.03);
 }
 
-.img-popup {
+.imgPopup {
     inset: 0;
     z-index: 9999;
     padding: 20px;
@@ -556,28 +532,21 @@ h4 {
     justify-content: center;
     align-items: center;
     background: rgba(0,0,0,0.9);
+    display: none;
 }
 
-.img-popup img {
+.imgPopup img {
     max-width: 90vw;
     max-height: 85vh;
     object-fit: contain;
     border-radius: 10px;
 }
 
-.popup-close {
+.popupNav {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-}
-
-.popup-nav {
-    position: absolute;
+    width: 20%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%); ;
     font-size: clamp(28px, 4vw, 50px);
     background: transparent;
     border: none;
@@ -586,11 +555,11 @@ h4 {
     padding: 0 2vw;
 }
 
-#prev-btn { 
+#prevBtn { 
     left: 10px;
 }
 
-#next-btn { 
+#nextBtn { 
     right: 10px;
 }
 
@@ -630,10 +599,11 @@ h4 {
 }
 
 #form {
-    width: 300px;
+    width: 95%;
     margin: 2vh auto;
     padding: 20px;
     font-size: 12px;
+
 }
 
 .inputCon {
@@ -650,6 +620,7 @@ h4 {
     width: 90%;
     padding: 5px;
     background-color: #f4f7cd;
+    align-self: center;
 
 }
 
