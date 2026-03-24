@@ -1,0 +1,123 @@
+body{
+    background-color:black;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+    animation: fadeInPage 1.5s forwards;
+}
+
+@keyframes fadeInPage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeOutPage {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.fade-out {
+    animation: fadeOutPage 1s forwards
+}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Coromant Garamond', serif;
+    color: whitesmoke;
+    padding: 7px;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+.layout {
+    display: flex;
+    margin: auto;
+    width: 95%;
+    border-radius: 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.container{
+    width: 65%;
+    margin: auto;
+    border-radius: 15px;
+    border: 3px dashed whitesmoke;
+    padding: 10px;
+    height: 200px auto;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    background-color: rgb(28, 34, 70);
+    color: whitesmoke;
+    border-radius: 15px;
+    object-fit: cover;
+    padding: 15px;
+    margin: 20px;
+    box-shadow: 0 0 10px navy;
+    justify-content: center;
+}
+
+.profile h2 {
+    text-align: center;
+    padding: 5px;
+    border: 3px solid whitesmoke
+}
+
+.profile p{
+    margin: 8px;
+}
+
+.susImg{
+    width: 85%;
+    border-radius: 13px;
+    margin: 10px 0;
+    margin-left: 10%
+}
+
+.pContainer{
+    margin: 20px auto;
+    width: 90%;
+    height: 20px;
+    background-color: rgb(28, 34, 70);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress {
+    transition: width 0.5s;
+    height: 100%;
+    width: 0%;
+    background-color: navy;
+}
+
+.words {
+    min-height: 100px;
+    color: whitesmoke;
+    font-family: 'Coromant Garamond', 'Courier New';
+    margin: 20px 0;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: navy;
+    color: whitesmoke;
+}
+
+.dialogue {
+    text-align: center;
+    margin-top: 50px;
+}
