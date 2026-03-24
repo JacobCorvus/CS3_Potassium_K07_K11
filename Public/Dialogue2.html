@@ -31,9 +31,204 @@
                 <p>Name: CLASSIFIED</p>
                 <p>Age: Unknown</p>
                 <p>Occupation: CLASSIFIED</p>
-                <p>Appearance: Red head, dressed like a he came from a gang</p>
-                <p>Description: Arrogant kid, annoying </p>
+                <p>Appearance: Juvenile, black hair, green eyes, 5'6</p>
+                <p>Description: Sheepish, nervous </p>
             </div>
         </div>
-    </body>
+    </body> <script>
+        const wordsElement = document.querySelector(".words");
+        const progressBar = document.querySelector(".progress");
+        const butt1 = document.querySelector(".butt1");
+        const butt2 = document.querySelector(".butt2");
+
+        let move = 0;
+
+        const game = {
+            start: {
+                text: "Suspect: Who are you?",
+                option1: {
+                    text: "I'm [REDACTED] from PATRON, you're... father owes us.",
+                    next: "persuade1",
+                    effect: 10
+                },
+                option2: {
+                    text: "Stop asking questions kid and bring your dad out.",
+                    next: "threat1",
+                    effect: 20
+                }
+            },
+
+            threat1: {
+                text: "Suspect: M-My father isn't here, please go away",
+                option1: {
+                    text: "Really now? Then why are there two sets of shoes outside?",
+                    next: "threat2",
+                    effect: 20
+                },
+                option2: {
+                    text: "There's no use in lying to me kid, just bring him out. This has nothing to do with you",
+                    next: "persuade2",
+                    effect: 10
+                }
+            },
+
+            persuade1: {
+                text: "Suspect: My father isn't... isn't feeling well right now, please come back some other time",
+                option1: {
+                    text: "I know he's there. I can see the shoes outside. Just bring him out and we can talk.",
+                    next: "threat2",
+                    effect: 20
+                },
+                option2: {
+                    text: "I could get you arrested if you keep lying like that.",
+                    next: "threat3",
+                    effect: 30
+                }
+            },
+
+            threat2: {
+                text: "Suspect: Please... miss, he really doesn't want to talk right now so-",
+                option1: {
+                    text: "I'm kicking this door down if you don't open it",
+                    next: "threat3",
+                    effect: 40
+                },
+                option2: {
+                    text: "I'm only here to talk with him, kid",
+                    next: "truth",
+                    effect: 5
+                }
+            },
+
+            threat3: {
+                text: "Suspect: I'm warning you... if you don't back away...",
+                option1: {
+                    text: "Do you wanna try me, kid?",
+                    next: "truth",
+                    effect: 100
+                },
+                option2: {
+                    text: "I don't wanna hurt you, just talk is all",
+                    next: "truth",
+                    effect: -25
+                }
+            },
+
+            truth: {
+                text: "Suspect: Alright fine. I'll call him right now",
+                option1: {
+                    text: "Not exactly.",
+                    next: "truth2",
+                    effect: 40
+                },
+                option2: {
+                    text: "Well it depends.",
+                    next: "truth2",
+                    effect: 20
+                }
+            },
+
+            truth2: {
+                text: "Suspect: What do you mean? I thought you were gonna arrest me.",
+                option1: {
+                    text: "I could arrest you, but I want to know more about your operation. Tell me about it.",
+                    next: "truth3",
+                    effect: 0
+                },
+                option2: {
+                    text: "I dont really like PATRON all that much either. Would be a shame to lock someone up for helping others out like you do.",
+                    next: "truth3",
+                    effect: 0
+                }
+            },
+
+            truth3: {
+                text: "Suspect: In that case, I guess I could tell you about it.",
+                option1: {
+                    text: "...",
+                    next: "truth4",
+                    effect: 0
+                },
+                option2: {
+                    text: "Go ahead.",
+                    next: "truth4",
+                    effect: 0
+                }
+            },
+
+            truth4: {
+                text: "Suspect: I bring in immigrants from anexxed areas outside the city. I get them across the wastes and from the border. I get paid, sure. But even then I do it just because I want to.",
+                option1: {
+                    text: "I see. Thanks for telling me.",
+                    next: "end",
+                    effect: 0
+                },
+
+                option2: {
+                    text: "Quite the operation you have there.",
+                    next: "end",
+                    effect: 0
+                }
+            },
+
+            end: {
+                text: "Suspect: Yeah, well. I guess I should be careful about who I tell about it. Thanks for not arresting me.",
+            }
+        };
+
+        let current = "start";
+
+        function updateProgress() {
+            progressBar.style.width = move + "%";
+        }
+
+        function render() {
+            let scene = game[current];
+
+            wordsElement.textContent = scene.text;
+
+            if (scene.option1) {
+                butt1.style.display = "inline-block";
+                butt1.textContent = scene.option1.text;
+            } else {
+                butt1.style.display = "none";
+            }
+
+            if (scene.option2) {
+                butt2.style.display = "inline-block";
+                butt2.textContent = scene.option2.text;
+            } else {
+                butt2.style.display = "none";
+            }
+
+            if(current === "end"){
+                setTimeout(() => {
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = "Archive.html";
+                    }, 1000);
+                }, 1000);
+            }
+        }
+
+        function choose(option) {
+            let scene = game[current];
+            let chosen = scene[option];
+
+            move += chosen.effect;
+            if (move < 0) move = 0;
+            if (move > 100) move = 100;
+
+            updateProgress();
+
+            current = chosen.next;
+            render();
+        }
+
+        butt1.onclick = () => choose("option1");
+        butt2.onclick = () => choose("option2");
+
+        render();
+</script>
 </html>
