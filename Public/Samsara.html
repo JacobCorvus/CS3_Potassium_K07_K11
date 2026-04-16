@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Graveyard Shift Productions">
+        <title> Bluestains | Bluebloods Wikipedia </title>
+        <link rel="stylesheet" href="characterpage.css">
+</head>
+<body>
+     <nav class="navBar">
+            <ul class ="dropDown">
+                <li class="dropBtn" id="menuToggle">
+                <img src="assets/Menu.png">
+                    <ul class="dropCon">
+                        <li><a href="ArchiveBlock.html">Archive</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="centered">
+                <ul class="navLinks">
+                    <li><a href ="BluebloodsCharacters.html">Characters</a></li>
+                    <li><a href="BluebloodsWorld.html">World</a></li>
+                </ul>
+                <a href="BluebloodsHome.html" class="loogo">
+                    <img src="assets/PATRON.png">
+                </a>
+                <ul class="navLinks">
+                    <li><a href ="BluebloodsGallery.html">Gallery</a></li>
+                    <li><a href ="BluebloodsChapters.html">Story</a></li>
+                </ul>
+            </div>
+            <script>
+                const menuToggle = document.getElementById("menuToggle");
+
+                if (menuToggle) {
+                    menuToggle.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        menuToggle.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function() {
+                    menuToggle.classList.remove("open");
+                });
+                }
+                </script>
+        </nav>
+<div class="parentchar">
+
+  <div class="charcard">
+
+    <div class="char-left">
+      <img src="assets/Samsara.png" class="char-portrait">
+
+      <h1>Samsara</h1>
+      <h4>She / Her · Born — March 15 </h4>
+      <h5>
+        “Fire, fire, swallowing Illium whole. Fire, fire, burning into your soul”<br>
+        — Jorge Rivera-Herrans
+      </h5>
+
+       <div class="char-actions">
+        <button class="char-btn voice-btn">Voice</button>
+        <button class="char-btn playlist-btn" onclick="window.open('https://open.spotify.com/', '_blank')">Playlist</button>
+    </div>
+
+    </div>
+
+    <div class="char-right">
+      <h2>INFO</h2>
+      <p>[NO INFORMATION FOUND</p>
+
+      <ul class="char-stats">
+        <li><strong>Height:</strong> 5'7</li>
+        <li><strong>Affiliation:</strong> Rogue Sorcerer</li>
+        <li><strong>Ability:</strong> Magician Hand (Probability Manipulation)</li>
+      </ul>
+
+      <h2>BACKGROUND</h2>
+      <p>[NO INFORMATION FOUND]</p>
+    </div>
+
+    <div class="char-bottom">
+      <table>
+        <tr>
+          <th>Likes</th>
+          <th>Dislikes</th>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
