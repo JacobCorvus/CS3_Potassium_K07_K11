@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Graveyard Shift Productions">
+        <title> Back-alley Interrogation </title>
+        <link rel="stylesheet" href="DialogueCss.css">
+        <link href="https://fonts.googleapis.com/css2?display=swap&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Syne+Tactile:ital,wght@0,400;1,400" rel="stylesheet">
+        <link rel="icon" href="assets/headlogo.png">
+    </head>
+    <body>
+        <div class="layout">
+            <div class="container">
+                <div class = "pContainer">
+                    <div class="progress"></div>
+                </div>
+
+                <div class="dialogue">
+                    <p class="words"></p>
+                    
+                    <button class="butt1"> Option 1</button>
+                    <button class="butt2"> Option 2</button>
+                </div>
+            </div>
+            <div class="profile">
+                <h2> Suspect Profile </h2>
+
+                <img src="assets/Thingggg.png" class="susImg">
+
+                <p>Name: Unknown</p>
+                <p>Age: Mid 40's</p>
+                <p>Occupation: Unknown</p>
+                <p>Appearance: Pure black curly hair, ragged clothes</p>
+                <p>Description: Smells like cheap perfume, bloodshot eyes </p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const wordsElement = document.querySelector(".words");
+        const progressBar = document.querySelector(".progress");
+        const butt1 = document.querySelector(".butt1");
+        const butt2 = document.querySelector(".butt2");
+
+        let move = 0;
+
+        const game = {
+            start: {
+                text: "Suspect: Hello there PATRON employee.",
+                option1: {
+                    text: "And good... evening to you too?",
+                    next: "threat1",
+                    effect: 20
+                },
+                option2: {
+                    text: "Can we make this quick?",
+                    next: "persuade1",
+                    effect: 10
+                }
+            },
+
+            threat1: {
+                text: "Suspect: Mmhhmmm...",
+                option1: {
+                    text: "I just wanted to ask a few questions because it says here you committed insurance fraud?",
+                    next: "threat2",
+                    effect: 10
+                },
+                option2: {
+                    text: "Are you high?",
+                    next: "threat3",
+                    effect: 10
+                }
+            },
+
+            persuade1: {
+                text: "Suspect: And what if I wanted to take my time..?",
+                option1: {
+                    text: "Well then I could arrest you for doing drugs instead.",
+                    next: "threat2",
+                    effect: 10
+                },
+                option2: {
+                    text: "You'd be wasting both of our times.",
+                    next: "threat4",
+                    effect: -5
+                }
+            },
+
+            threat2: {
+                text: "Suspect: Ohoh, and why are suddenly so pushyyy..",
+                option1: {
+                    text: "I... need you to answer me properly first.",
+                    next: "threat4",
+                    effect: 15
+                },
+                option2: {
+                    text: "So you are taking drugs, yeah...",
+                    next: "threat3",
+                    effect: 5
+                }
+            },
+
+            threat3: {
+                text: "Suspect: Well you can't prove that what I'm taking is illegal though.",
+                option1: {
+                    text: "But I can prove that you deserve to be arrested for insurance fraud.",
+                    next: "smth1",
+                    effect: 30
+                },
+                option2: {
+                    text: "And you haven't answered any of my questions",
+                    next: "",
+                    effect: 25
+                }
+            },
+
+            threat4: {
+                text: "Suspect: But I wanna have just a bit of fun PATRON Agent, you're so boooooooring.",
+                option1: {
+                    text: "Well Im sorry Im not entertaining you but can we please cut to the chase?",
+                    next: "truth",
+                    effect: 30
+                },
+                option2: {
+                    text: "Can you please shut up?",
+                    next: "sad",
+                    effect: 25
+                }
+            },
+
+            truth: {
+                text: "Suspect: I committed insurance fraud.",
+                option1: {
+                    text: "????",
+                    next: "truth2",
+                    effect: 40
+                },
+                option2: {
+                    text: "What?",
+                    next: "truth2",
+                    effect: 20
+                }
+            },
+
+            truth2: {
+                text: "Suspect: Yes I did. Now try and catch me! *runs out the room*",
+                option1: {
+                    text: "I could arrest you, but I want to know more about your operation. Tell me about it.",
+                    next: "truth3",
+                    effect: 0
+                },
+                option2: {
+                    text: "I dont really like PATRON all that much either. Would be a shame to lock someone up for helping others out like you do.",
+                    next: "truth3",
+                    effect: 0
+                }
+            },
+
+            truth3: {
+                text: "Suspect: In that case, I guess I could tell you about it.",
+                option1: {
+                    text: "...",
+                    next: "truth4",
+                    effect: 0
+                },
+                option2: {
+                    text: "Go ahead.",
+                    next: "truth4",
+                    effect: 0
+                }
+            },
+
+            truth4: {
+                text: "Suspect: I bring in immigrants from anexxed areas outside the city. I get them across the wastes and from the border. I get paid, sure. But even then I do it just because I want to.",
+                option1: {
+                    text: "I see. Thanks for telling me.",
+                    next: "end",
+                    effect: 0
+                },
+
+                option2: {
+                    text: "Quite the operation you have there.",
+                    next: "end",
+                    effect: 0
+                }
+            },
+
+            end: {
+                text: "Suspect: Yeah, well. I guess I should be careful about who I tell about it. Thanks for not arresting me.",
+            }
+        };
+
+        let current = "start";
+
+        function updateProgress() {
+            progressBar.style.width = move + "%";
+        }
+
+        function render() {
+            let scene = game[current];
+
+            wordsElement.textContent = scene.text;
+
+            if (scene.option1) {
+                butt1.style.display = "inline-block";
+                butt1.textContent = scene.option1.text;
+            } else {
+                butt1.style.display = "none";
+            }
+
+            if (scene.option2) {
+                butt2.style.display = "inline-block";
+                butt2.textContent = scene.option2.text;
+            } else {
+                butt2.style.display = "none";
+            }
+
+            if(current === "end"){
+                setTimeout(() => {
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(() => {
+                        window.location.href = "Archive.html";
+                    }, 1000);
+                }, 1000);
+            }
+        }
+
+        function choose(option) {
+            let scene = game[current];
+            let chosen = scene[option];
+
+            move += chosen.effect;
+            if (move < 0) move = 0;
+            if (move > 100) move = 100;
+
+            updateProgress();
+
+            current = chosen.next;
+            render();
+        }
+
+        butt1.onclick = () => choose("option1");
+        butt2.onclick = () => choose("option2");
+
+        render();
+</script>
+</html>

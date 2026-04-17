@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Graveyard Shift Productions">
+        <title> Bluestains | Bluebloods Wikipedia </title>
+        <link rel="stylesheet" href="characterpage.css">
+</head>
+<body>
+     <nav class="navBar">
+            <ul class ="dropDown">
+                <li class="dropBtn" id="menuToggle">
+                <img src="assets/Menu.png">
+                    <ul class="dropCon">
+                        <li><a href="ArchiveBlock.html">Archive</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="centered">
+                <ul class="navLinks">
+                    <li><a href ="BluebloodsCharacters.html">Characters</a></li>
+                    <li><a href="BluebloodsWorld.html">World</a></li>
+                </ul>
+                <a href="BluebloodsHome.html" class="loogo">
+                    <img src="assets/PATRON.png">
+                </a>
+                <ul class="navLinks">
+                    <li><a href ="BluebloodsGallery.html">Gallery</a></li>
+                    <li><a href ="BluebloodsChapters.html">Story</a></li>
+                </ul>
+            </div>
+            <script>
+                const menuToggle = document.getElementById("menuToggle");
+
+                if (menuToggle) {
+                    menuToggle.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        menuToggle.classList.toggle("open");
+                });
+
+                document.addEventListener("click", function() {
+                    menuToggle.classList.remove("open");
+                });
+                }
+                </script>
+        </nav>
+<div class="parentchar">
+
+  <div class="charcard">
+
+    <div class="char-left">
+      <img src="assets/Kai.png" class="char-portrait">
+
+      <h1>Kairus</h1>
+      <h4>He / Him · Born — December 8 </h4>
+      <h5>
+        “I've done the math, there's no solution; we'll never last”<br>
+        — Laufey
+      </h5>
+
+       <div class="char-actions">
+        <button class="char-btn voice-btn">Voice</button>
+        <button class="char-btn playlist-btn" onclick="window.open('https://open.spotify.com/', '_blank')">Playlist</button>
+    </div>
+
+    </div>
+
+    <div class="char-right">
+      <h2>INFO</h2>
+      <p>Kai was raised a soldier of the Tide Port Mafia, the first born son of the family. He was ruthless, groomed into evil, but after being 
+        scorned by his family for sparing a life, he defected. Now, he runs an illegal immigrant smuggling operation. He is a very private person, and doesn't like to talk about his past.</p> 
+      </p>
+
+      <ul class="char-stats">
+        <li><strong>Height:</strong> 6'2</li>
+        <li><strong>Affiliation:</strong> Tide Port Mafia (former)</li>
+        <li><strong>Ability:</strong> Organic Matter Manipulation</li>
+      </ul>
+
+      <h2>BACKGROUND</h2>
+      <p>He was raised in the strict environment of the Tide Port, where he learned the ways of violence and intimidation. His upbringing was harsh, and he was taught to be loyal and ruthless. However, his conscience began to trouble him when he spared a life, leading to his eventual defection from the organization.</p>
+    </div>
+
+    <div class="char-bottom">
+      <table>
+        <tr>
+          <th>Likes</th>
+          <th>Dislikes</th>
+        </tr>
+        <tr>
+          <td>His sister, Talia</td>
+          <td>Parental abuse</td>
+        </tr>
+        <tr>
+          <td>Helping those he sees himself in</td>
+          <td>Fighting</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
