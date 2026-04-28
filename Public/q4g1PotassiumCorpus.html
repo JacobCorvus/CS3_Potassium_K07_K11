@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie List</title>
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 30px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+      background-image: url("blockbuster.webp");
+      background-size: cover;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #57a2a9;
+      padding: 30px;
+      border-radius: 15px;
+      border: black solid 5px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #222;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .stars {
+      margin-top: 10px;
+      font-size: 35px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .star {
+      color: grey;
+    }
+
+    .star.active {
+      color: orangered;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #1677f2;
+      color: white;
+      cursor: pointer;
+      border: #222 solid 1px;
+    }
+
+    button:hover {
+      background-color: #0f63ca;
+    }
+
+    #movieList {
+      margin-top: 30px;
+    }
+
+    .movie-card {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .movie-stars {
+      color: orangered;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Add a Movie</h1>
+
+    <label>Title:</label>
+    <input type="text" id="title">
+
+    <label>Year:</label>
+    <input type="number" id="year">
+
+    <label>Genre:</label>
+    <select id="genre">
+      <option>Action</option>
+      <option>Comedy</option>
+      <option>Drama</option>
+      <option>Fantasy</option>
+      <option>Horror</option>
+      <option>Science Fiction</option>
+      <option>Adventure</option>
+    </select>
+
+    <label>Rating:</label>
+
+    <div class="stars" id="ratingStars">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+
+    <button onclick="addMovie()">Add Movie</button>
+
+    <h2>Movie List</h2>
+
+    <div id="movieList"></div>
+
+  </div>
+
+  <script>
+    let selectedRating = 0;
+
+    const stars = document.querySelectorAll(".star");
+
+    stars.forEach(star => {
+    star.addEventListener("click", () => {
+    selectedRating = star.dataset.value;
+
+    updatestars(selectedRating);
+      });
+    });
+
+    function updatestars(rating) {
+      stars.forEach(star => {
+        if (star.dataset.value <= rating) {
+          star.classList.add("active");
+        } else {
+          star.classList.remove("active");
+        }
+      });
+    }
+
+    function addMovie() {
+
+      const title = document.getElementById("title").value;
+      const year = document.getElementById("year").value;
+      const genre = document.getElementById("genre").value;
+
+      if (title === "" || year === "" || selectedRating == 0) {
+        alert("Please complete the form.");
+        return;
+      }
+
+      const movie = {
+        title: title,
+        year: year,
+        genre: genre,
+        rating: selectedRating
+      };
+
+      let movies = JSON.parse(localStorage.getItem("movies")) || [];
+
+      movies.push(movie);
+
+      localStorage.setItem("movies", JSON.stringify(movies));
+
+      displayMovies();
+
+      document.getElementById("title").value = "";
+      document.getElementById("year").value = "";
+      document.getElementById("genre").selectedIndex = 0;
+
+      selectedRating = 0;
+      updatestars(0);
+    }
+
+    function displayMovies() {
+
+      const movieList = document.getElementById("movieList");
+
+      movieList.innerHTML = "";
+
+      let movies = JSON.parse(localStorage.getItem("movies")) || [];
+
+      movies.forEach(movie => {
+
+        const movieCard = document.createElement("div");
+
+        movieCard.classList.add("movie-card");
+
+        let starsDisplay = "";
+
+        for (let i = 0; i < movie.rating; i++) {
+          starsDisplay += "★";
+        }
+
+        movieCard.innerHTML =
+          `${movie.title} (${movie.year}) - ${movie.genre}, Rating:
+          <span class="movie-stars">${starsDisplay}</span>`;
+
+        movieList.appendChild(movieCard);
+      });
+    }
+
+    displayMovies();
+  </script>
+
+</body>
+</html>
